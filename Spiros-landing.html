@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Spiros – Snack-brasserie à Charleroi (Marchienne-au-Pont)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Spiros, snack-brasserie à Marchienne-au-Pont (Charleroi). Classiques maison, grillades, pâtes et burgers. Rue de Beaumont. Appelez le 071 51 06 25.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Figtree:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Spiros","telephone":"+3271510625","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Rue de Beaumont 200","postalCode":"6030","addressLocality":"Charleroi","addressCountry":"BE"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.1","reviewCount":"400","bestRating":"5"}}</script>
+<style>
+:root{
+  --bg:#1a1a1a; --bg2:#1e1e1e; --panel:#232323; --ink:#f4f1ea; --muted:#b4ae9f;
+  --terra:#d2601a; --gold:#e3b04b; --line:rgba(244,241,234,.14); --line2:rgba(244,241,234,.08);
+  --font-display:'Alfa Slab One',serif; --font-text:'Figtree',system-ui,sans-serif; --font-mono:'DM Mono',monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-text);line-height:1.5;padding-bottom:0;
+  background-image:radial-gradient(circle at 1px 1px, rgba(244,241,234,.05) 1px, transparent 0);background-size:3px 3px;}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+.gold{color:var(--gold)}
+.mono{font-family:var(--font-mono)}
+.section{padding:88px 0}
+.section-title{font-size:clamp(30px,5vw,48px);line-height:1.05;margin-bottom:10px;position:relative;display:inline-block}
+.section-title::after{content:"";position:absolute;left:0;bottom:-10px;height:2px;width:0;background:var(--gold);
+  transition:width .9s cubic-bezier(.22,1,.36,1)}
+.section-title.in-view::after{width:64px}
+.section-lead{color:var(--muted);font-size:17px;max-width:56ch;margin:18px 0 44px}
+
+/* ---- reveal ---- */
+[data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+[data-reveal].in-view{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){ [data-reveal]{transition:none} }
+
+/* ---- header ---- */
+header{position:sticky;top:0;z-index:40;background:rgba(26,26,26,.88);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line2);transition:padding .3s ease,box-shadow .3s ease}
+header .bar{max-width:1120px;margin:0 auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;transition:padding .3s ease}
+header.shrink{box-shadow:0 8px 24px rgba(0,0,0,.35)}
+header.shrink .bar{padding-block:10px}
+.logo{font-family:var(--font-display);font-size:24px;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;
+  font-weight:600;font-size:15px;text-decoration:none;border:2px solid transparent;cursor:pointer;
+  transition:transform .15s cubic-bezier(.2,.8,.2,1),background-color .2s,border-color .2s,box-shadow .2s}
+.btn-primary{background:var(--terra);color:#1a1a1a}
+.btn-primary:hover{background:#e86f24}
+.btn-primary:active{transform:scale(.97)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn.pulse{animation:pulse 7s ease-in-out infinite}
+@keyframes pulse{0%,92%,100%{box-shadow:0 0 0 0 rgba(210,96,26,.45)}95%{box-shadow:0 0 0 10px rgba(210,96,26,0)}}
+@media (prefers-reduced-motion:reduce){ .btn.pulse{animation:none} }
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ---- hero ---- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;
+  background:radial-gradient(ellipse 120% 70% at 50% -10%, #262219 0%, var(--bg) 60%)}
+.hero__grain{position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain-zoom 22s ease-in-out infinite alternate}
+@keyframes grain-zoom{from{transform:scale(1)}to{transform:scale(1.12)}}
+@media (prefers-reduced-motion:reduce){ .hero__grain{animation:none} }
+.ember{position:absolute;bottom:-10px;width:4px;height:4px;border-radius:50%;background:var(--terra);
+  box-shadow:0 0 8px 2px rgba(210,96,26,.7);opacity:0;animation:rise 9s ease-in infinite}
+@keyframes rise{0%{opacity:0;transform:translateY(0) translateX(0)}8%{opacity:.8}90%{opacity:.25}100%{opacity:0;transform:translateY(-70vh) translateX(var(--drift,20px))}}
+@media (prefers-reduced-motion:reduce){ .ember{display:none} }
+.hero__inner{position:relative;max-width:1120px;margin:0 auto;padding:0 20px;width:100%}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.badge{display:inline-flex;align-items:center;height:34px;padding:0 16px;border-radius:999px;font-size:13px;font-weight:600;
+  background:var(--panel);border:1px solid var(--line)}
+.badge.gold{color:var(--gold)}
+.hero h1{font-size:clamp(44px,9vw,104px);line-height:.98;margin-bottom:22px}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:inline-block;transform:translateY(110%);transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.hero.ready h1 .ln span{transform:none}
+.hero h1 .ln:nth-child(1) span{transition-delay:.05s}
+.hero h1 .ln:nth-child(2) span{transition-delay:.18s}
+@media (prefers-reduced-motion:reduce){ .hero h1 .ln span{transform:none;transition:none} }
+.hero p.lead{font-size:clamp(17px,2.2vw,21px);color:var(--muted);max-width:52ch;margin:0 0 34px;
+  opacity:0;transform:translateY(14px);transition:opacity .6s ease .35s,transform .6s cubic-bezier(.22,1,.36,1) .35s}
+.hero.ready p.lead{opacity:1;transform:none}
+.hero .btn-row{display:flex;flex-wrap:wrap;gap:14px;
+  opacity:0;transform:translateY(14px);transition:opacity .6s ease .5s,transform .6s cubic-bezier(.22,1,.36,1) .5s}
+.hero.ready .btn-row{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){ .hero p.lead,.hero .btn-row,.badges{opacity:1!important;transform:none!important;transition:none!important} }
+
+/* ---- ticker ---- */
+.ticker{background:var(--panel);border-block:1px solid var(--line2);overflow:hidden;padding:16px 0}
+.ticker__track{display:flex;width:max-content;gap:48px;animation:tick 32s linear infinite}
+.ticker:hover .ticker__track{animation-play-state:paused}
+.ticker__track span{font-family:var(--font-display);font-size:18px;color:var(--muted);white-space:nowrap;letter-spacing:.02em}
+.ticker__track span.gold{color:var(--gold)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){ .ticker__track{animation:none} }
+
+/* ---- classics cards ---- */
+.classics{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.classic-card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:28px 24px;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease;transform-style:preserve-3d;perspective:600px}
+.classic-card::before{content:"";position:absolute;inset:0;border-radius:4px;border:1px solid var(--terra);opacity:0;
+  transition:opacity .3s ease}
+.classic-card:hover{transform:translateY(-6px) rotateX(2deg) rotateY(-2deg);box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+.classic-card:hover::before{opacity:1}
+.classic-card .num{font-family:var(--font-mono);color:var(--muted);font-size:13px;margin-bottom:18px;display:block}
+.classic-card h3{font-size:22px;line-height:1.15;margin-bottom:14px;min-height:54px}
+.classic-card .price{font-family:var(--font-mono);color:var(--gold);font-size:22px;font-weight:500}
+@media (prefers-reduced-motion:reduce){ .classic-card{transition:box-shadow .2s ease} .classic-card:hover{transform:none} }
+
+/* ---- why ---- */
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
+.why-item{text-align:left;opacity:0;transform:scale(.9) translateY(10px);transition:opacity .5s cubic-bezier(.34,1.56,.64,1),transform .5s cubic-bezier(.34,1.56,.64,1)}
+.why-item.in-view{opacity:1;transform:none}
+.why-item .ico{width:46px;height:46px;border-radius:50%;background:var(--terra);color:#1a1a1a;display:flex;align-items:center;
+  justify-content:center;font-family:var(--font-display);font-size:19px;margin-bottom:14px}
+.why-item h3{font-size:19px;font-family:var(--font-text);font-weight:700;margin-bottom:6px}
+.why-item p{margin:0;color:var(--muted);font-size:15px}
+@media (prefers-reduced-motion:reduce){ .why-item{transition:opacity .3s ease} }
+
+/* ---- reviews ---- */
+.reviews{display:flex;flex-wrap:wrap;align-items:center;gap:56px}
+.rating-num{font-family:var(--font-display);font-size:clamp(72px,12vw,140px);color:var(--gold);line-height:1}
+.stars{display:flex;gap:4px;margin:10px 0 6px}
+.stars svg{width:22px;height:22px;fill:var(--line)}
+.stars svg.on{fill:var(--gold)}
+.reviews-sub{color:var(--muted);margin:0 0 18px}
+
+/* ---- menu tabs ---- */
+.tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--line);margin-bottom:32px;position:relative}
+.tab{appearance:none;background:none;border:0;color:var(--muted);font-family:var(--font-text);font-weight:600;font-size:15px;
+  padding:12px 16px;cursor:pointer;position:relative;min-height:48px}
+.tab[aria-selected="true"]{color:var(--ink)}
+.tab-ind{position:absolute;bottom:-1px;height:2px;background:var(--terra);transition:left .35s cubic-bezier(.65,0,.35,1),width .35s cubic-bezier(.65,0,.35,1)}
+.menu-panel{display:none}
+.menu-panel.active{display:block;animation:fade-in .3s ease both}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){ .menu-panel.active{animation:none} }
+.menu-row{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line2);
+  opacity:0;transform:translateX(-8px);transition:opacity .4s ease,transform .4s ease}
+.menu-row.in{opacity:1;transform:none}
+.menu-row .name{font-size:16px}
+.menu-row .name small{display:block;color:var(--muted);font-size:13px;margin-top:3px;font-weight:400}
+.menu-row .price{font-family:var(--font-mono);color:var(--gold);white-space:nowrap}
+.menu-note{color:var(--muted);font-size:14px;margin-top:18px}
+.drinks-cats{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.drinks-cats span{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-size:14px}
+
+/* ---- infos ---- */
+.infos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:start}
+.infos-grid table{width:100%;border-collapse:collapse;margin-bottom:20px}
+.infos-grid iframe{width:100%;min-height:320px;border:0;border-radius:4px;filter:grayscale(.3) invert(.92) contrast(.9)}
+.cta-big{margin-top:44px;display:flex;align-items:center;justify-content:center;min-height:84px;background:var(--terra);
+  color:#1a1a1a;border-radius:4px;font-family:var(--font-display);font-size:clamp(22px,4vw,34px);text-decoration:none;text-align:center;padding:14px}
+
+footer{border-top:1px solid var(--line2);padding:40px 0 calc(40px + env(safe-area-inset-bottom));color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between}
+
+/* ---- mobile bar ---- */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(26,26,26,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line);
+  transform:translateY(100%);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.mbar.show{transform:none}
+@media (max-width:759px){ .mbar{display:flex} body{padding-bottom:84px} }
+.mbar a{flex:1;min-height:52px}
+
+@media (max-width:640px){ .section{padding:64px 0} }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="bar">
+    <a href="#top" class="logo">Spiros</a>
+    <a href="tel:+3271510625" class="btn btn-primary">Appeler</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="hero__grain" aria-hidden="true"></div>
+    <div aria-hidden="true" id="embers"></div>
+    <div class="hero__inner">
+      <div class="badges">
+        <span class="badge gold">4,1★ · 400 avis Google</span>
+        <span class="badge">Ouvre à 12:00</span>
+      </div>
+      <h1><span class="ln"><span>À table chez</span></span><span class="ln"><span>Spiros.</span></span></h1>
+      <p class="lead">Classiques maison, grillades, pâtes et burgers. Rue de Beaumont, Marchienne-au-Pont.</p>
+      <div class="btn-row">
+        <a href="tel:+3271510625" class="btn btn-primary pulse">Appeler le 071 51 06 25</a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Rue+de+Beaumont+200,+6030+Charleroi" class="btn btn-ghost">Itinéraire</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>Burgers</span><span class="gold">·</span><span>Grillades</span><span class="gold">·</span><span>Pâtes</span><span class="gold">·</span><span>Classiques maison</span><span class="gold">·</span><span>Cocktails</span><span class="gold">·</span><span>Crêpes</span><span class="gold">·</span><span>Menu enfant</span><span class="gold">·</span>
+      <span>Burgers</span><span class="gold">·</span><span>Grillades</span><span class="gold">·</span><span>Pâtes</span><span class="gold">·</span><span>Classiques maison</span><span class="gold">·</span><span>Cocktails</span><span class="gold">·</span><span>Crêpes</span><span class="gold">·</span><span>Menu enfant</span><span class="gold">·</span>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="section-title" data-reveal>Les classiques maison.</h2>
+      <p class="section-lead" data-reveal>Ce qui revient le plus souvent dans les assiettes.</p>
+      <div class="classics">
+        <article class="classic-card" data-reveal><span class="num">01</span><h3>Burger Géant 200&nbsp;g</h3><span class="price">16&nbsp;€</span></article>
+        <article class="classic-card" data-reveal><span class="num">02</span><h3>Carbonnade flamande</h3><span class="price">15&nbsp;€</span></article>
+        <article class="classic-card" data-reveal><span class="num">03</span><h3>Scampis du chef, sauce tomate relevée au whisky</h3><span class="price">17&nbsp;€</span></article>
+        <article class="classic-card" data-reveal><span class="num">04</span><h3>Côtes d'agneau</h3><span class="price">22&nbsp;€</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg2)">
+    <div class="wrap">
+      <h2 class="section-title" data-reveal>Pourquoi Spiros.</h2>
+      <div class="why" style="margin-top:44px">
+        <div class="why-item" data-reveal><div class="ico">F</div><h3>Fait maison</h3><p>Les classiques préparés sur place.</p></div>
+        <div class="why-item" data-reveal><div class="ico">C</div><h3>Cocktails</h3><p>Pour prolonger le repas.</p></div>
+        <div class="why-item" data-reveal><div class="ico">E</div><h3>Menu enfant</h3><p>Les petits mangent aussi bien.</p></div>
+        <div class="why-item" data-reveal><div class="ico">W</div><h3>Wi-Fi</h3><p>Connecté pendant que ça grille.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="avis">
+    <div class="wrap">
+      <h2 class="section-title" data-reveal>Ils en parlent.</h2>
+      <div class="reviews" style="margin-top:44px">
+        <div data-reveal>
+          <div class="rating-num" id="ratingNum">0</div>
+          <div class="stars" id="stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          </div>
+        </div>
+        <div data-reveal>
+          <p class="reviews-sub">400 avis Google</p>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=Rue+de+Beaumont+200,+6030+Charleroi">Lire les avis sur Google</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="carte" style="background:var(--bg2)">
+    <div class="wrap">
+      <h2 class="section-title" data-reveal>La carte.</h2>
+      <div style="margin-top:40px">
+        <div class="tabs" id="tabs" role="tablist" aria-label="Catégories de la carte">
+          <span class="tab-ind" id="tabInd" aria-hidden="true"></span>
+        </div>
+        <div id="panels"></div>
+        <p class="menu-note">Prix indicatifs, susceptibles d'évoluer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="infos">
+    <div class="wrap">
+      <h2 class="section-title" data-reveal>Infos pratiques.</h2>
+      <div class="infos-grid" style="margin-top:40px">
+        <div data-reveal>
+          <table>
+            <tr><td style="padding:10px 0;color:var(--muted)">Adresse</td><td style="padding:10px 0;text-align:right">Rue de Beaumont 200, 6030 Charleroi</td></tr>
+            <tr><td style="padding:10px 0;color:var(--muted)">Horaires</td><td style="padding:10px 0;text-align:right">Ouvre à 12:00</td></tr>
+            <tr><td style="padding:10px 0;color:var(--muted)">Téléphone</td><td style="padding:10px 0;text-align:right"><a href="tel:+3271510625" style="font-weight:700">071 51 06 25</a></td></tr>
+          </table>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=Rue+de+Beaumont+200,+6030+Charleroi">Itinéraire</a>
+        </div>
+        <iframe data-reveal title="Carte Spiros" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rue+de+Beaumont+200,+6030+Charleroi&output=embed"></iframe>
+      </div>
+      <a href="tel:+3271510625" class="cta-big" data-reveal>Réserver par téléphone</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><strong style="color:var(--ink);font-family:var(--font-display);font-size:20px">Spiros</strong><br>Snack-brasserie</div>
+    <div>Rue de Beaumont 200<br>6030 Charleroi</div>
+    <div><a href="tel:+3271510625" style="font-weight:700;color:var(--ink)">071 51 06 25</a><br>Ouvre à 12:00</div>
+  </div>
+</footer>
+
+<nav class="mbar" id="mbar" aria-label="Actions rapides">
+  <a href="tel:+3271510625" class="btn btn-primary">Appeler</a>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=Rue+de+Beaumont+200,+6030+Charleroi" class="btn btn-ghost">Itinéraire</a>
+</nav>
+
+<script>
+// Full menu, one object — tabs and rows are generated from it, nothing hardcoded twice.
+var MENU = {
+  "Entrées froides": [
+    ["Tomate mozzarella et basilic", "13"],
+    ["Assortiment de charcuterie (1 pers.)", "13"],
+    ["Assortiment de charcuterie (2 pers.)", "25"],
+    ["Assiette de saumon fumé et sa rillette", "17,50"]
+  ],
+  "Entrées chaudes": [
+    ["Croquette de fromage (1 pièce)", "7"],
+    ["Croquette de fromage (2 pièces)", "14"],
+    ["Scampis à l'ail", "17"],
+    ["Scampis du chef", "sauce tomate relevée au whisky", "17"],
+    ["Calamars maison", "14"]
+  ],
+  "Salades": [
+    ["César", "poulet, salade, tomate, maïs, concombre, copeaux de parmesan, œuf, sauce César", "14"],
+    ["Chèvre chaud au miel", "chèvre, lardon, tomate, salade, oignon, cerneaux de noix", "14"]
+  ],
+  "Classiques maison": [
+    ["Filet américain, frites et salade", "16"],
+    ["Boulettes sauce tomate", "15"],
+    ["Boulettes sauce chasseur", "16"],
+    ["Vol-au-vent", "15"],
+    ["Carbonnade flamande", "15"],
+    ["Burger 100 g", "cheddar, sauce Giant, salade, tomate, oignon rouge", "13"],
+    ["Burger Géant 200 g", "16"],
+    ["Assiette pitta", "15"]
+  ],
+  "Pâtes": [
+    ["Lasagne", "porc/veau", "14"],
+    ["Tagliatelles saumon épinard crème", "17"],
+    ["Spaghettis alle vongole", "tomate cerise, ail, basilic", "21"],
+    ["Pâtes 4 fromages", "gorgonzola, taleggio, belpaese, parmesan", "17"],
+    ["Bolognaise", "14"],
+    ["Arrabiata", "13"],
+    ["Linguines aglio e olio", "13"],
+    ["Spaghettis carbonara", "crème, guanciale", "15"]
+  ],
+  "Viandes": [
+    ["Steak frites et salade", "18"],
+    ["Entrecôte irlandaise", "28"],
+    ["Cœur d'entrecôte", "+/- 350 g", "25"],
+    ["Osso bucco", "23"],
+    ["Escalope milanaise", "18"],
+    ["Escalope alla parmigiana", "18"],
+    ["Escalope de volaille", "sauce Archiduc", "16"],
+    ["5 brochettes d'agneau", "16,50"],
+    ["Côtes d'agneau", "22"]
+  ],
+  "Sauces": [
+    ["Archiduc", "4"], ["Poivre vert", "4"], ["Béarnaise", "4"], ["Gorgonzola", "4"]
+  ],
+  "Poissons": [
+    ["Fish and chips de cabillaud et sauce tartare", "14"]
+  ],
+  "Enfants": [
+    ["Pâtes", "4 fromages, bolognaise, arrabiata, aglio e olio ou carbonara", "11"],
+    ["Boulette sauce tomate", "10"]
+  ],
+  "Desserts": [
+    ["Tiramisu", "7"], ["Tiramisu spéculoos", "8"], ["Panna cotta", "5"], ["Mousse au chocolat", "5"],
+    ["Fondant au chocolat", "8"], ["Dôme chocolat / citron / framboise", "7"]
+  ],
+  "Crêpes": [
+    ["Sucre", "7"], ["Sucre et citron", "7,50"], ["Kinder", "8"],
+    ["Mikado", "boule vanille, coulis de chocolat, chantilly", "10"]
+  ]
+};
+var DRINK_CATS = ["Apéritifs","Bières","Softs","Vins","Boissons chaudes","Cocktails"];
+var NOTES = { "Pâtes": "Au choix : pennes, spaghettis ou tagliatelles." };
+
+(function buildMenu(){
+  var tabsEl = document.getElementById('tabs');
+  var panelsEl = document.getElementById('panels');
+  var ind = document.getElementById('tabInd');
+  var names = Object.keys(MENU).concat(['Boissons']);
+
+  names.forEach(function(name, i){
+    var id = 'tab-' + i;
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'tab'; btn.id = id; btn.setAttribute('role','tab');
+    btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    btn.setAttribute('aria-controls', 'panel-' + i);
+    btn.textContent = name;
+    btn.addEventListener('click', function(){ selectTab(i); });
+    tabsEl.appendChild(btn);
+
+    var panel = document.createElement('div');
+    panel.className = 'menu-panel' + (i === 0 ? ' active' : '');
+    panel.id = 'panel-' + i; panel.setAttribute('role','tabpanel'); panel.setAttribute('aria-labelledby', id);
+
+    if (name === 'Boissons') {
+      var cats = document.createElement('div');
+      cats.className = 'drinks-cats';
+      DRINK_CATS.forEach(function(c){ var s = document.createElement('span'); s.textContent = c; cats.appendChild(s); });
+      panel.appendChild(cats);
+    } else {
+      MENU[name].forEach(function(row, k){
+        var nameTxt = row[0], sub = row.length === 3 ? row[1] : null, price = row[row.length - 1];
+        var r = document.createElement('div');
+        r.className = 'menu-row'; r.style.transitionDelay = (k * 40) + 'ms';
+        r.innerHTML = '<span class="name">' + nameTxt + (sub ? '<small>' + sub + '</small>' : '') + '</span>' +
+                      '<span class="price mono">' + price + ' €</span>';
+        panel.appendChild(r);
+      });
+      if (NOTES[name]) {
+        var note = document.createElement('p');
+        note.className = 'menu-note'; note.style.marginTop = '12px'; note.textContent = NOTES[name];
+        panel.appendChild(note);
+      }
+    }
+    panelsEl.appendChild(panel);
+  });
+
+  function placeInd(instant){
+    var sel = tabsEl.querySelector('[aria-selected="true"]');
+    if (!sel) return;
+    ind.style.transition = instant ? 'none' : '';
+    ind.style.left = sel.offsetLeft + 'px';
+    ind.style.width = sel.offsetWidth + 'px';
+  }
+  function revealRows(panel){
+    panel.querySelectorAll('.menu-row').forEach(function(r){ requestAnimationFrame(function(){ r.classList.add('in'); }); });
+  }
+  function selectTab(i){
+    tabsEl.querySelectorAll('.tab').forEach(function(t, idx){ t.setAttribute('aria-selected', String(idx === i)); });
+    panelsEl.querySelectorAll('.menu-panel').forEach(function(p, idx){
+      p.classList.toggle('active', idx === i);
+      if (idx === i) { p.querySelectorAll('.menu-row').forEach(function(r){ r.classList.remove('in'); }); revealRows(p); }
+    });
+    placeInd();
+  }
+  window.addEventListener('resize', function(){ placeInd(true); });
+  placeInd(true);
+  revealRows(panelsEl.querySelector('.menu-panel.active'));
+
+  // arrow-key navigation between tabs, accessible
+  tabsEl.addEventListener('keydown', function(e){
+    var tabs = Array.prototype.slice.call(tabsEl.querySelectorAll('.tab'));
+    var cur = tabs.findIndex(function(t){ return t.getAttribute('aria-selected') === 'true'; });
+    if (e.key === 'ArrowRight') { e.preventDefault(); var n = (cur + 1) % tabs.length; tabs[n].focus(); selectTab(n); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); var p = (cur - 1 + tabs.length) % tabs.length; tabs[p].focus(); selectTab(p); }
+  });
+})();
+
+// Hero entrance: runs once, held by CSS until this flips the class (so content is visible if JS fails).
+requestAnimationFrame(function(){ document.getElementById('hero').classList.add('ready'); });
+
+// Rising embers, generated once, CSS keyframes carry the motion.
+(function embers(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+  var host = document.getElementById('embers');
+  for (var i = 0; i < 10; i++) {
+    var e = document.createElement('span');
+    e.className = 'ember';
+    e.style.left = (8 + Math.random() * 84) + '%';
+    e.style.setProperty('--drift', (Math.random() * 40 - 20) + 'px');
+    e.style.animationDelay = (Math.random() * 9) + 's';
+    e.style.animationDuration = (7 + Math.random() * 5) + 's';
+    host.appendChild(e);
+  }
+})();
+
+// Scroll reveal, IntersectionObserver, once each.
+(function reveal(){
+  var items = document.querySelectorAll('[data-reveal]');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in-view'); io.unobserve(en.target); } });
+  }, { threshold: 0.2 });
+  items.forEach(function(el){ io.observe(el); });
+  var titles = document.querySelectorAll('.section-title');
+  var io2 = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in-view'); io2.unobserve(en.target); } });
+  }, { threshold: 0.4 });
+  titles.forEach(function(el){ io2.observe(el); });
+})();
+
+// Rating counter + stars, once, on enter.
+(function counter(){
+  var done = false;
+  var el = document.getElementById('ratingNum');
+  var stars = document.querySelectorAll('#stars svg');
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting || done) return;
+      done = true; io.disconnect();
+      if (reduced) { el.textContent = '4,1'; stars.forEach(function(s, i){ if (i < 4) s.classList.add('on'); }); return; }
+      var start = null, dur = 1100;
+      function step(ts){
+        if (!start) start = ts;
+        var p = Math.min(1, (ts - start) / dur);
+        var val = (1 - Math.pow(1 - p, 3)) * 4.1;
+        el.textContent = val.toFixed(1).replace('.', ',');
+        var litCount = Math.round(p * 4);
+        stars.forEach(function(s, i){ s.classList.toggle('on', i < litCount); });
+        if (p < 1) requestAnimationFrame(step); else { el.textContent = '4,1'; stars.forEach(function(s,i){ s.classList.toggle('on', i<4); }); }
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.6 });
+  io.observe(document.getElementById('avis'));
+})();
+
+// Header shrink + mobile bar slide-in after hero.
+(function scrollFx(){
+  var header = document.getElementById('header');
+  var mbar = document.getElementById('mbar');
+  var hero = document.getElementById('hero');
+  var ticking = false;
+  function update(){
+    var y = window.scrollY;
+    header.classList.toggle('shrink', y > 40);
+    mbar.classList.toggle('show', y > hero.offsetHeight * 0.8);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){ if (!ticking) { requestAnimationFrame(update); ticking = true; } }, { passive: true });
+  update();
+})();
+</script>
+</body>
+</html>
