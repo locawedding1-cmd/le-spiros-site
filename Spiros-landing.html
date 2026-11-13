@@ -69,7 +69,22 @@ header.shrink .bar{padding-block:10px}
   box-shadow:0 0 8px 2px rgba(210,96,26,.7);opacity:0;animation:rise 9s ease-in infinite}
 @keyframes rise{0%{opacity:0;transform:translateY(0) translateX(0)}8%{opacity:.8}90%{opacity:.25}100%{opacity:0;transform:translateY(-70vh) translateX(var(--drift,20px))}}
 @media (prefers-reduced-motion:reduce){ .ember{display:none} }
-.hero__inner{position:relative;max-width:1120px;margin:0 auto;padding:0 20px;width:100%}
+.hero__inner{position:relative;max-width:1120px;margin:0 auto;padding:0 20px;width:100%;
+  display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+@media (min-width:860px){ .hero__inner{grid-template-columns:1.1fr .9fr;gap:24px} }
+.hero__photos{position:relative;height:420px;display:none}
+@media (min-width:860px){ .hero__photos{display:block} }
+.hero__photos img{position:absolute;object-fit:cover;border-radius:6px;border:1px solid var(--line);
+  box-shadow:0 24px 48px -24px rgba(0,0,0,.6);
+  opacity:0;transform:translateY(24px) scale(.96);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.hero.ready .hero__photos img{opacity:1;transform:none}
+.hero__photos img:nth-child(1){top:0;right:0;width:78%;height:320px;z-index:1;transition-delay:.15s}
+.hero__photos img:nth-child(2){left:0;bottom:0;width:46%;height:200px;z-index:2;transition-delay:.3s}
+.hero__photos img:nth-child(3){right:6%;bottom:-16px;width:34%;height:150px;z-index:3;transition-delay:.42s}
+@media (prefers-reduced-motion:reduce){ .hero__photos img{opacity:1!important;transform:none!important;transition:none!important} }
+.hero__mobile-photo{display:block;margin:28px 0 0;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.hero__mobile-photo img{display:block;width:100%;height:200px;object-fit:cover}
+@media (min-width:860px){ .hero__mobile-photo{display:none} }
 .badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
 .badge{display:inline-flex;align-items:center;height:34px;padding:0 16px;border-radius:999px;font-size:13px;font-weight:600;
   background:var(--panel);border:1px solid var(--line)}
@@ -184,15 +199,25 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between}
     <div class="hero__grain" aria-hidden="true"></div>
     <div aria-hidden="true" id="embers"></div>
     <div class="hero__inner">
-      <div class="badges">
-        <span class="badge gold">4,1★ · 400 avis Google</span>
-        <span class="badge">Ouvre à 12:00</span>
+      <div class="hero__text">
+        <div class="badges">
+          <span class="badge gold">4,1★ · 400 avis Google</span>
+          <span class="badge">Ouvre à 12:00</span>
+        </div>
+        <h1><span class="ln"><span>À table chez</span></span><span class="ln"><span>Spiros.</span></span></h1>
+        <p class="lead">Classiques maison, grillades, pâtes et burgers. Rue de Beaumont, Marchienne-au-Pont.</p>
+        <div class="btn-row">
+          <a href="tel:+3271510625" class="btn btn-primary pulse">Appeler le 071 51 06 25</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Rue+de+Beaumont+200,+6030+Charleroi" class="btn btn-ghost">Itinéraire</a>
+        </div>
+        <figure class="hero__mobile-photo">
+          <img src="assets/img/photo-f7467737-500.webp" alt="Steak grillé et frites, servis sur une assiette" loading="eager" decoding="async" data-source="stand-in" data-subject="stand-in">
+        </figure>
       </div>
-      <h1><span class="ln"><span>À table chez</span></span><span class="ln"><span>Spiros.</span></span></h1>
-      <p class="lead">Classiques maison, grillades, pâtes et burgers. Rue de Beaumont, Marchienne-au-Pont.</p>
-      <div class="btn-row">
-        <a href="tel:+3271510625" class="btn btn-primary pulse">Appeler le 071 51 06 25</a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Rue+de+Beaumont+200,+6030+Charleroi" class="btn btn-ghost">Itinéraire</a>
+      <div class="hero__photos" aria-hidden="true">
+        <img src="assets/img/photo-f7467737-960.webp" alt="" loading="eager" decoding="async" data-source="stand-in" data-subject="stand-in">
+        <img src="assets/img/photo-f152444711-500.webp" alt="" loading="eager" decoding="async" data-source="stand-in" data-subject="stand-in">
+        <img src="assets/img/photo-f97226152-500.webp" alt="" loading="eager" decoding="async" data-source="stand-in" data-subject="stand-in">
       </div>
     </div>
   </section>
@@ -289,6 +314,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between}
     <div>Rue de Beaumont 200<br>6030 Charleroi</div>
     <div><a href="tel:+3271510625" style="font-weight:700;color:var(--ink)">071 51 06 25</a><br>Ouvre à 12:00</div>
   </div>
+  <div class="wrap" style="margin-top:24px;font-size:12px;opacity:.7">Photographies de substitution — steak-frites par Dcollard (domaine public), spaghettis carbonara par JIP (CC BY-SA), tiramisu par Navneet Sharma (CC BY-SA), via Wikimedia Commons.</div>
 </footer>
 
 <nav class="mbar" id="mbar" aria-label="Actions rapides">
