@@ -2,65 +2,78 @@
  "note": "Credits for the photographs in this folder: photos.mjs credits prints the footer block for the ones the pages use.",
  "photos": [
   {
-   "file": "photo-f23097589.webp",
+   "file": "photo-f7467737.webp",
    "files": [
-    "photo-f23097589-500.webp",
-    "photo-f23097589-960.webp",
-    "photo-f23097589.webp"
+    "photo-f7467737-500.webp",
+    "photo-f7467737-960.webp",
+    "photo-f7467737.webp"
    ],
-   "id": "f23097589",
-   "alt": "Gyro meat on pita",
-   "by": "jeffreyw",
-   "licence": "CC BY 2.0",
-   "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
-   "page": "https://commons.wikimedia.org/wiki/File:Gyro_meat_on_pita.jpg",
+   "id": "f7467737",
+   "alt": "Steak-frites as served at Le Relais de Venise - L'Entrecote",
+   "by": "Dcollard",
+   "licence": "Public domain",
+   "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "page": "https://commons.wikimedia.org/wiki/File:Steak-frites_as_served_at_Le_Relais_de_Venise_-_L%27Entrecote.jpg",
    "source": "Wikimedia Commons"
   },
   {
-   "file": "photo-f30083777.webp",
+   "file": "photo-f97226152.webp",
    "files": [
-    "photo-f30083777-500.webp",
-    "photo-f30083777-960.webp",
-    "photo-f30083777.webp"
+    "photo-f97226152-500.webp",
+    "photo-f97226152-960.webp",
+    "photo-f97226152.webp"
    ],
-   "id": "f30083777",
-   "alt": "Feta Cheese Greek Salad",
-   "by": "Myfri9694",
-   "licence": "CC BY-SA 3.0",
-   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-   "page": "https://commons.wikimedia.org/wiki/File:Feta_Cheese_Greek_Salad.jpg",
-   "source": "Wikimedia Commons"
-  },
-  {
-   "file": "photo-f47090051.webp",
-   "files": [
-    "photo-f47090051-500.webp",
-    "photo-f47090051-960.webp",
-    "photo-f47090051.webp"
-   ],
-   "id": "f47090051",
-   "alt": "Basket of French Fries",
-   "by": "Ceeseven",
+   "id": "f97226152",
+   "alt": "Tiramisu dessert",
+   "by": "Navneet Sharma",
    "licence": "CC BY-SA 4.0",
    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-   "page": "https://commons.wikimedia.org/wiki/File:Basket_of_French_Fries.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Tiramisu_dessert.jpg",
    "source": "Wikimedia Commons"
   },
   {
-   "file": "photo-f23107992.webp",
+   "file": "photo-f107369507.webp",
    "files": [
-    "photo-f23107992-500.webp",
-    "photo-f23107992-960.webp",
-    "photo-f23107992-1280.webp",
-    "photo-f23107992.webp",
-    "photo-f23107992-780x975.webp"
+    "photo-f107369507-500.webp",
+    "photo-f107369507-960.webp",
+    "photo-f107369507.webp"
    ],
-   "id": "f23107992",
-   "alt": "Gyro sandwich",
-   "by": "jeffreyw",
-   "licence": "CC BY 2.0",
-   "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
-   "page": "https://commons.wikimedia.org/wiki/File:Gyro_sandwich.jpg",
+   "id": "f107369507",
+   "alt": "Salade de ch\u00e8vre chaud 002",
+   "by": "Arnaud 25",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Salade_de_ch%C3%A8vre_chaud_002.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f152444711.webp",
+   "files": [
+    "photo-f152444711-500.webp",
+    "photo-f152444711-960.webp",
+    "photo-f152444711.webp"
+   ],
+   "id": "f152444711",
+   "alt": "Spaghetti carbonara at Makaronitehdas Redi",
+   "by": "JIP",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Spaghetti_carbonara_at_Makaronitehdas_Redi.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f46491015.webp",
+   "files": [
+    "photo-f46491015-500.webp",
+    "photo-f46491015-960.webp",
+    "photo-f46491015.webp"
+   ],
+   "id": "f46491015",
+   "alt": "B\u0153uf bourguignon 06",
+   "by": "Arnaud 25",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:B%C5%93uf_bourguignon_06.JPG",
    "source": "Wikimedia Commons"
   }
  ]
