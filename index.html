@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="fr" data-type="place" data-radius="soft" data-buttons="block" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le Spiros : gyros à la broche, Marchienne-au-Pont</title>
+<meta name="description" content="Taverne grecque et friterie à Marchienne-au-Pont. Gyros à la broche, brochettes et friterie belge, sur place ou à emporter du mercredi au dimanche.">
+<meta name="site-kind" content="other"><meta name="page-type" content="place"><meta name="page-kind" content="place">
+<meta property="og:title" content="Le Spiros : gyros à la broche, Marchienne-au-Pont">
+<meta property="og:description" content="Taverne grecque et friterie à Marchienne-au-Pont. Sur place ou à emporter du mercredi au dimanche.">
+<meta name="theme-color" content="#f6f1e7">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Besley:wght@400..600&family=Albert+Sans:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/moments/word-highlight/moment.css">
+<style>
+:root {
+  --p-bg: #f6f1e7; --p-surface: #ebe3d4; --p-ink: #2b241e; --p-muted: #6a5f54;
+  --p-accent: #a3472b; --p-accent-ink: #ffffff; --p-action: #a3472b; --p-action-ink: #ffffff;
+  --p-inv-bg: #2b241e; --p-inv-surface: #37302a; --p-inv-ink: #f6f1e7; --p-inv-muted: #a29c94;
+  --p-inv-accent: #f6f1e7; --p-inv-accent-ink: #2b241e; --p-inv-action: #f6f1e7; --p-inv-action-ink: #2b241e;
+  --font-display: "Besley", Georgia, serif;
+  --font-text: "Albert Sans", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.02em;
+}
+.visit-address { font: 500 20px/1.5 var(--font-text); font-style: normal; margin: var(--s-4) 0; }
+.statement { padding-block: var(--s-10); }
+/* #plats holds a scroll-driven carousel taller than one screen: the kit locks every .section to
+   exactly --h screens (system.css), which clipped/overlapped the next section under our real
+   (variable) content height. Let this one section grow to fit instead. */
+#plats { height: auto; }
+/* #carte's menu text plus the new tall+small photo pair run past one screen; let it grow to fit
+   rather than force --h:2 (which left a dead gap, since the pair doesn't need a full second screen). */
+#carte { height: auto; }
+.hero__media--pair { overflow: visible; }
+.hero__peek { position: absolute; left: -8%; bottom: -14%; width: 44%; aspect-ratio: 1; margin: 0; border-radius: var(--r-lg); overflow: hidden; box-shadow: 0 20px 40px -14px rgb(0 0 0 / .35); border: 5px solid var(--bg); }
+.hero__peek img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 1023px) { .hero__peek { width: 38%; left: -6%; bottom: -10%; } }
+.statement .t-label { color: var(--muted); margin-bottom: var(--s-6); }
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js"><link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
+</head>
+<body>
+<header class="nav nav--split">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Aller au contenu</a>
+    <a class="nav__logo" href="#top"><span class="mark" data-mark="petal" aria-hidden="true"></span>Le Spiros</a>
+    <nav class="nav__links" aria-label="Principal">
+      <div class="nav__item"><a class="nav__link" href="#carte">La carte</a></div>
+      <div class="nav__item"><a class="nav__link" href="#visite">Visite</a></div>
+      <div class="nav__item"><a class="nav__link" href="#avis">Avis</a></div>
+      <div class="nav__item"><a class="nav__link" href="#contact">Infos</a></div>
+    </nav>
+    <div class="nav__actions"><a class="btn btn--primary" href="tel:+3271510625">Appeler</a></div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <h1 id="hero-h">Taverne grecque à Marchienne-au-Pont</h1>
+        <p class="hero__lead">Gyros à la broche dès 7&nbsp;€, sur place ou à emporter du mercredi au dimanche.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="tel:+3271510625">Appeler pour commander</a></div>
+        <div class="hero__badges" style="display:flex; flex-wrap:wrap; gap:var(--s-3); margin-top:var(--s-5)">
+          <span class="pill"><span>4,1&nbsp;/&nbsp;5</span><span class="muted">sur Google, 390+&nbsp;avis</span></span>
+          <span class="pill"><span>Broche</span><span class="muted">toute la journée</span></span>
+        </div>
+      </div>
+      <div class="hero__media hero__media--pair span-6 start-7">
+        <img src="assets/img/photo-f23107992.webp" srcset="assets/img/photo-f23107992-500.webp 500w, assets/img/photo-f23107992-960.webp 960w, assets/img/photo-f23107992-1280.webp 1280w, assets/img/photo-f23107992.webp 1920w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="942" alt="Pita garnie de fines tranches de viande grillée, tzatziki, tomate et oignon, avec une feuille de menthe fraîche" style="--ly-pos: 50% 40%" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="stand-in">
+        <figure class="hero__peek">
+          <img src="assets/img/photo-f23097589.webp" srcset="assets/img/photo-f23097589-500.webp 500w, assets/img/photo-f23097589-960.webp 960w" sizes="(max-width: 1023px) 45vw, 20vw" width="1280" height="848" alt="Viande de gyros tranchée, servie sur une pita chaude" loading="lazy" decoding="async" data-source="stand-in" data-subject="stand-in">
+        </figure>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" data-place="visit" id="visite" aria-labelledby="visit-h">
+    <div class="wrap grid grid--top">
+      <div class="span-6">
+        <div class="section-head"><h2 id="visit-h">Visite</h2></div>
+        <address class="visit-address"><a class="link" href="https://www.google.com/maps/search/?api=1&query=Rue+de+Beaumont+200%2C+6030+Marchienne-au-Pont">Rue de Beaumont, Marchienne-au-Pont</a></address>
+        <p class="t-lead" data-assumed>Fermé lundi et mardi. Sur place du mercredi au dimanche, 18h à 22h (aussi 12h à 14h le vendredi et le dimanche). À emporter dès 11h30.</p>
+      </div>
+      <figure class="pl-photo pl-photo--end span-6 start-7" style="--pl-r: 1.33">
+        <img src="assets/img/photo-f23097589.webp" srcset="assets/img/photo-f23097589-500.webp 500w, assets/img/photo-f23097589-960.webp 960w, assets/img/photo-f23097589.webp 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="848" alt="Viande de gyros tranchée, servie sur une pita chaude" loading="lazy" decoding="async" data-source="stand-in" data-subject="stand-in">
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="carte" aria-labelledby="carte-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="carte-h">La carte du Spiros</h2>
+        <p data-assumed>Carte provisoire, à confirmer avec le gérant avant mise en ligne.</p>
+      </div>
+      <div class="grid grid--top">
+        <div class="span-6">
+          <h3 class="t-label">Nos pitas gyros</h3>
+          <ul class="rows">
+            <li><span class="rows__name">Pita gyros</span><span class="rows__value" data-assumed>7 €</span></li>
+            <li><span class="rows__name">Pita gyros XL</span><span class="rows__value" data-assumed>9,5 €</span></li>
+            <li><span class="rows__name">Pita falafel</span><span class="rows__value" data-assumed>7 €</span></li>
+          </ul>
+          <h3 class="t-label" style="margin-top: var(--s-4)">Nos brochettes grillées</h3>
+          <ul class="rows">
+            <li><span class="rows__name">Brochette souvlaki</span><span class="rows__value" data-assumed>9 €</span></li>
+            <li><span class="rows__name">Assiette grecque mixte</span><span class="rows__value" data-assumed>15 €</span></li>
+          </ul>
+        </div>
+        <div class="span-6 start-7">
+          <h3 class="t-label">Salades grecques</h3>
+          <ul class="rows">
+            <li><span class="rows__name">Salade grecque</span><span class="rows__value" data-assumed>8 €</span></li>
+            <li><span class="rows__name">Tzatziki et pain pita</span><span class="rows__value" data-assumed>5 €</span></li>
+          </ul>
+          <h3 class="t-label" style="margin-top: var(--s-4)">Friterie belge</h3>
+          <ul class="rows">
+            <li><span class="rows__name">Frites</span><span class="rows__value" data-assumed>3 / 4,5 €</span></li>
+            <li><span class="rows__name">Mitraillette</span><span class="rows__value" data-assumed>6,5 €</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="grid grid--top" style="margin-top: var(--s-2)">
+        <figure class="pl-photo span-7" style="--pl-r: .82"><img src="assets/img/photo-build1-salade.jpg" srcset="assets/img/photo-build1-salade-500.jpg 600w, assets/img/photo-build1-salade.jpg 1200w" sizes="(max-width: 1023px) 100vw, 58vw" width="1200" height="798" alt="Salade grecque avec feta, olives et tomates" loading="lazy" decoding="async" data-source="stand-in" data-subject="stand-in"></figure>
+        <figure class="pl-photo span-4 start-9" style="--pl-r: 1; align-self: end"><img src="assets/img/photo-build1-friterie.jpg" srcset="assets/img/photo-build1-friterie-500.jpg 600w, assets/img/photo-build1-friterie.jpg 1200w" sizes="(max-width: 1023px) 100vw, 33vw" width="1200" height="802" alt="Portion de frites belges" loading="lazy" decoding="async" data-source="stand-in" data-subject="stand-in"></figure>
+        </div>
+    </div>
+  </section>
+
+  <section class="section" id="plats" aria-labelledby="plats-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="plats-h">De la broche à votre assiette</h2><p>Rien n'est préparé à l'avance : la broche tourne dès l'ouverture, la salade est coupée le jour même et les frites repassent deux fois à la friteuse, à la belge.</p></div>
+    </div>
+    <div id="dsh-root"></div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+  <script type="text/plain" id="dsh-source">
+const { useEffect, useLayoutEffect, useRef, useState } = React;
+const { gsap } = window;
+const { ScrollTrigger } = window;
+gsap.registerPlugin(ScrollTrigger);
+
+function wrapIndex(i, n) { if (n <= 0) return 0; return ((Math.round(i) % n) + n) % n; }
+function stepDirection(from, to, n) { if (n <= 0) return 1; const fwd = (((to - from) % n) + n) % n; return fwd <= n - fwd ? 1 : -1; }
+function scrollSteps(n, loop) { return Math.max(0, loop ? n : n - 1); }
+function segmentFor(i, current, n, loop) { return loop && i === 0 && current > n / 2 ? n : i; }
+function stripStart(index, n, visible) { if (n <= visible) return 0; return Math.max(0, Math.min(index - 1, n - visible)); }
+function fitSize(chars, max, width, em) { return Math.min(max, width / (Math.max(1, chars) * em)); }
+function arcPath(a0, a1, cx, cy, r, w, steps = 48) {
+  const outer = []; const inner = [];
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps;
+    const a = ((a0 + (a1 - a0) * t) * Math.PI) / 180;
+    const h = (w / 2) * Math.pow(Math.sin(Math.PI * t), 0.45);
+    const c = Math.cos(a); const s = Math.sin(a);
+    outer.push((cx + c * (r + h)).toFixed(1) + " " + (cy + s * (r + h)).toFixed(1));
+    inner.push((cx + c * (r - h)).toFixed(1) + " " + (cy + s * (r - h)).toFixed(1));
+  }
+  return "M" + outer.join("L") + "L" + inner.reverse().join("L") + "Z";
+}
+const ARC_REST = [[50, 98], [46, 124], [60, 126], [40, 100]];
+function arcRest(index) { return ARC_REST[((index % ARC_REST.length) + ARC_REST.length) % ARC_REST.length]; }
+const ARC_SWEEP = [38, 146];
+
+const ORBIT_X = 299, ORBIT_Y = -450, ORBIT_R = 650, SCROLL_PER_DISH = 0.7, SWING = 50, ITEM = 118, VISIBLE = 4, FONT = "dsh-face";
+
+const CSS =
+  ".dsh-trk{position:relative;width:100%}" +
+  ".dsh-root{position:sticky;top:0;overflow:hidden;width:100%;background:var(--bg);color:var(--ink);" +
+  "font-family:" + FONT + ",var(--font-text),ui-sans-serif,system-ui,sans-serif;container-type:inline-size;-webkit-tap-highlight-color:transparent}" +
+  ".dsh-root *{box-sizing:border-box}" +
+  ".dsh-root:focus-visible{outline:2px solid var(--action);outline-offset:-4px}" +
+  ".dsh-canvas{position:absolute;left:50%;top:50%;width:960px;height:520px;transform:translate(-50%,-50%) scale(var(--dsh-s,1));transform-origin:50% 50%}" +
+  ".dsh-arc{position:absolute;left:0;top:0;width:960px;height:520px;overflow:visible;pointer-events:none}" +
+  ".dsh-btn{appearance:none;border:0;background:none;color:inherit;font:inherit;padding:0;margin:0;cursor:pointer}" +
+  ".dsh-btn:focus-visible{outline:2px solid var(--action);outline-offset:3px;border-radius:10px}" +
+  ".dsh-ico{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}" +
+  ".dsh-pager{position:absolute;left:76px;top:172px;display:flex;flex-direction:column;align-items:center;gap:7px}" +
+  ".dsh-dot{width:14px;height:10px;display:grid;place-items:center}" +
+  ".dsh-dot i{display:block;width:3px;height:3px;border-radius:3px;background:var(--ink);opacity:.45;transition:height .45s cubic-bezier(.3,.7,.2,1),opacity .3s}" +
+  ".dsh-dot[aria-current] i{height:22px;opacity:.9}" +
+  ".dsh-dot[aria-current]{height:26px}" +
+  ".dsh-plates{position:absolute;left:130px;top:82px;width:245px;height:245px;touch-action:pan-y}" +
+  ".dsh-orbit{position:absolute;inset:0;transform-origin:69% -217%;visibility:hidden;will-change:transform}" +
+  ".dsh-orbit>img{display:block;width:245px;height:245px;max-width:none;object-fit:contain;user-select:none;-webkit-user-drag:none;" +
+  "filter:drop-shadow(0 16px 22px rgba(0,0,0,.2)) drop-shadow(0 3px 5px rgba(0,0,0,.12))}" +
+  ".dsh-head{position:absolute;left:388px;top:96px;width:330px;height:150px}" +
+  ".dsh-hd{position:absolute;inset:0;visibility:hidden}" +
+  ".dsh-eye{font-size:12.5px;font-weight:600;letter-spacing:.01em;margin:0 0 4px 2px;color:var(--muted)}" +
+  ".dsh-t1,.dsh-t2{display:block;white-space:nowrap;line-height:1;text-transform:uppercase;margin:0}" +
+  ".dsh-t1{font-weight:200;letter-spacing:-.015em;margin-top:6px}" +
+  ".dsh-t2{font-weight:800;letter-spacing:-.025em;margin-top:6px;color:color-mix(in oklab,var(--ink) 86%,transparent)}" +
+  ".dsh-acts{position:absolute;left:396px;top:280px;display:flex;gap:16px;font-size:13px;font-weight:500}" +
+  ".dsh-acts .dsh-btn,.dsh-acts a{display:flex;align-items:center;gap:9px;padding:10px 18px;border-radius:999px;background:var(--action);color:var(--action-ink);text-decoration:none}" +
+  ".dsh-acts .dsh-ico{width:15px;height:15px}" +
+  ".dsh-card{position:absolute;left:722px;top:137px;width:223px;padding:18px 20px 20px;border-radius:20px;" +
+  "background:color-mix(in oklab,var(--bg) 72%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);" +
+  "box-shadow:0 1px 0 color-mix(in oklab,var(--ink) 6%,transparent) inset,0 18px 40px -24px rgba(0,0,0,.25)}" +
+  ".dsh-tabs{display:flex;justify-content:space-between;padding:0 6px 0 20px;font-size:12px;margin-bottom:20px}" +
+  ".dsh-tab{color:var(--muted);font-weight:500;padding:3px 0}" +
+  ".dsh-tab[aria-selected=true]{color:var(--ink);font-weight:600}" +
+  ".dsh-bodies{display:grid}" +
+  ".dsh-body{grid-area:1/1;visibility:hidden}" +
+  ".dsh-price{font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1;margin:0 0 4px;font-variant-numeric:tabular-nums}" +
+  ".dsh-kit{font-size:11px;color:var(--muted);margin:0 0 12px;text-transform:uppercase;letter-spacing:.03em}" +
+  ".dsh-desc{font-size:12.5px;line-height:1.38;margin:0}" +
+  ".dsh-ing{display:flex;flex-wrap:wrap;gap:5px;margin:14px 0 0;padding:0;list-style:none}" +
+  ".dsh-ing li{font-size:11px;padding:4px 9px;border-radius:99px;background:color-mix(in oklab,var(--ink) 7%,transparent)}" +
+  ".dsh-strip{position:absolute;left:130px;top:362px;width:550px;height:122px;display:flex;align-items:center}" +
+  ".dsh-arrow{width:36px;height:36px;display:grid;place-items:center;flex:none}" +
+  ".dsh-arrow svg{width:12px;height:16px;fill:currentColor}" +
+  ".dsh-win{position:relative;width:" + ITEM * VISIBLE + "px;height:122px;overflow:hidden;flex:none;margin:0 2px;" +
+  "-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}" +
+  ".dsh-track{position:absolute;left:0;top:0;display:flex;transition:transform .6s cubic-bezier(.65,0,.35,1)}" +
+  ".dsh-th{width:" + ITEM + "px;height:122px;display:flex;justify-content:center;padding-top:3px}" +
+  ".dsh-th .dsh-btn{width:80px;height:116px;border-radius:14px;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:9px;transition:background .45s}" +
+  ".dsh-th .dsh-btn[aria-current]{background:color-mix(in oklab,var(--bg) 62%,transparent);box-shadow:0 10px 24px -16px rgba(0,0,0,.3)}" +
+  ".dsh-th img{width:56px;height:56px;max-width:none;object-fit:contain;filter:drop-shadow(0 4px 6px rgba(0,0,0,.18));transition:transform .45s}" +
+  ".dsh-th .dsh-btn[aria-current] img{transform:scale(1.06)}" +
+  ".dsh-th span{font-size:10px;line-height:1.25;text-align:center;font-weight:500;color:color-mix(in oklab,var(--ink) 78%,transparent);max-width:78px}" +
+  ".dsh-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}" +
+  "@container (max-width:639px){" +
+  ".dsh-canvas{position:relative;left:auto;top:auto;width:100%;height:auto;transform:none;display:flex;flex-direction:column;align-items:center;padding:14px 16px 18px}" +
+  ".dsh-arc{width:200%;height:auto;left:-60%;top:-30px}" +
+  ".dsh-pager{left:14px;top:150px}" +
+  ".dsh-plates{position:relative;left:auto;top:auto;width:min(52vw,32svh);height:min(52vw,32svh);margin-top:0}" +
+  ".dsh-orbit>img{width:100%;height:100%}" +
+  ".dsh-head{position:relative;left:auto;top:auto;width:100%;height:132px;margin-top:10px}" +
+  ".dsh-hd{text-align:center;transform:scale(.78);transform-origin:50% 0}" +
+  ".dsh-acts{position:relative;left:auto;top:auto;margin-top:4px;justify-content:center}" +
+  ".dsh-card{position:relative;left:auto;top:auto;width:100%;max-width:420px;margin-top:12px}" +
+  ".dsh-strip{display:none}" +
+  "}" +
+  "@media (prefers-reduced-motion:reduce){.dsh-track,.dsh-dot,.dsh-dot i,.dsh-th .dsh-btn,.dsh-th img{transition:none}}";
+
+const HIDE_1 = "inset(0% 0% 0% 100%)", HIDE_2 = "inset(0% 100% 0% 0%)", SHOW = "inset(0% 0% 0% 0%)";
+
+const Icon = {
+  order: <svg className="dsh-ico dsh-fill" viewBox="0 0 24 24" aria-hidden="true" style={{fill:"currentColor"}}><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>,
+};
+
+function DishCarousel({ dishes, height = "100svh", loop = true, className }) {
+  const n = dishes.length;
+  const [index, setIndex] = useState(0);
+  const [tab, setTab] = useState("overview");
+  const trackRef = useRef(null), rootRef = useRef(null), stRef = useRef(null);
+  const segRef = useRef(0), indexRef = useRef(0);
+  const orbits = useRef([]), heads = useRef([]), bodies = useRef([]);
+  const arcRef = useRef(null), arc = useRef({ a0: 0, a1: 0 });
+  const shown = useRef(-1), dirRef = useRef(1), tlRef = useRef(null), reducedRef = useRef(false), swipe = useRef(null);
+
+  useLayoutEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    const fit = () => { const w = el.clientWidth, h = el.clientHeight; el.style.setProperty("--dsh-s", String(Math.min(w / 960, h / 520, 1.6))); };
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const on = () => (reducedRef.current = mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+
+  useLayoutEffect(() => {
+    const from = shown.current, to = index;
+    const parts = (i) => {
+      const head = heads.current[i];
+      return { orbit: orbits.current[i], head, eye: head && head.querySelector(".dsh-eye"), t1: head && head.querySelector(".dsh-t1"), t2: head && head.querySelector(".dsh-t2"), body: bodies.current[i] };
+    };
+    const drawArc = () => arcRef.current?.setAttribute("d", arcPath(arc.current.a0, arc.current.a1, ORBIT_X, ORBIT_Y, ORBIT_R, 118));
+    const rest = arcRest(to);
+    const tint = dishes[to] ? dishes[to].accent : "transparent";
+    if (tlRef.current) tlRef.current.progress(1).kill();
+    const b = parts(to);
+    if (from === -1 || from === to || reducedRef.current) {
+      for (let i = 0; i < n; i++) if (i !== to) { const p = parts(i); gsap.set([p.orbit, p.head, p.body], { autoAlpha: 0 }); }
+      gsap.set([b.orbit, b.head, b.body, b.eye], { autoAlpha: 1, rotation: 0, y: 0 });
+      gsap.set(b.t1, { clipPath: SHOW });
+      gsap.set(b.t2, { clipPath: SHOW });
+      arc.current.a0 = rest[0]; arc.current.a1 = rest[1];
+      drawArc();
+      if (arcRef.current) gsap.set(arcRef.current, { fill: tint });
+      shown.current = to;
+      return;
+    }
+    const a = parts(from), d = dirRef.current;
+    const tl = gsap.timeline({ onComplete: () => { tlRef.current = null; } });
+    tlRef.current = tl;
+    tl.to(a.orbit, { rotation: SWING * d, duration: 0.62, ease: "power2.in" }, 0)
+      .set(a.orbit, { autoAlpha: 0, rotation: 0 }, 0.62)
+      .fromTo(b.orbit, { autoAlpha: 1, rotation: -SWING * d }, { rotation: 0, duration: 0.95, ease: "power3.out" }, 0.3);
+    tl.to(a.t1, { clipPath: HIDE_1, duration: 0.42, ease: "power2.in" }, 0)
+      .to(a.t2, { clipPath: HIDE_2, duration: 0.42, ease: "power2.in" }, 0.06)
+      .to(a.eye, { autoAlpha: 0, duration: 0.25 }, 0)
+      .set(a.head, { autoAlpha: 0 }, 0.5)
+      .set(b.head, { autoAlpha: 1 }, 0.5)
+      .fromTo(b.eye, { autoAlpha: 0, y: 6 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.55)
+      .fromTo(b.t1, { clipPath: HIDE_1 }, { clipPath: SHOW, duration: 0.7, ease: "power3.out" }, 0.55)
+      .fromTo(b.t2, { clipPath: HIDE_2 }, { clipPath: SHOW, duration: 0.7, ease: "power3.out" }, 0.62);
+    tl.to(a.body, { autoAlpha: 0, y: -6, duration: 0.3, ease: "power1.in" }, 0.05).set(b.body, { autoAlpha: 1, y: 0 }, 0.4);
+    if (b.body) tl.fromTo(b.body.children, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.06, ease: "power2.out" }, 0.4);
+    tl.to(arc.current, { a0: ARC_SWEEP[0], a1: ARC_SWEEP[1], duration: 0.6, ease: "power2.inOut", onUpdate: drawArc }, 0)
+      .to(arc.current, { a0: rest[0], a1: rest[1], duration: 0.85, ease: "power3.out", onUpdate: drawArc }, 0.6);
+    if (arcRef.current) tl.to(arcRef.current, { fill: tint, duration: 1.1, ease: "power1.inOut" }, 0.1);
+    shown.current = to;
+  }, [index, n, dishes]);
+
+  useEffect(() => () => { tlRef.current?.kill(); }, []);
+
+  const select = (next, dir) => { if (next === indexRef.current) return; dirRef.current = dir; indexRef.current = next; setIndex(next); };
+
+  const steps = scrollSteps(n, loop);
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track || steps < 1) return;
+    const trigger = ScrollTrigger.create({
+      trigger: track, start: "top top", end: "bottom bottom",
+      snap: { snapTo: 1 / steps, duration: { min: 0.3, max: 0.8 }, delay: 0.08, ease: "power2.inOut" },
+      onUpdate: (self) => {
+        if (loop && self.progress >= 1 && self.direction > 0) { segRef.current = 0; self.scroll(self.start + 1); select(0, 1); return; }
+        const seg = Math.round(self.progress * steps);
+        if (seg === segRef.current) return;
+        const dir = seg > segRef.current ? 1 : -1;
+        segRef.current = seg;
+        select(wrapIndex(seg, n), dir);
+      },
+    });
+    let raf = 0;
+    const onWheel = (e) => {
+      const y = trigger.scroll();
+      if (!loop || e.deltaY >= 0 || y < trigger.start - 1 || y > trigger.start + 1) return;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => { segRef.current = n - 1; trigger.scroll(trigger.start + ((trigger.end - trigger.start) * (n - 1)) / steps); select(n - 1, -1); });
+    };
+    window.addEventListener("wheel", onWheel, { passive: true });
+    stRef.current = trigger;
+    return () => { cancelAnimationFrame(raf); window.removeEventListener("wheel", onWheel); trigger.kill(); stRef.current = null; };
+  }, [steps, loop, n]);
+
+  const go = (to, dir) => {
+    if (n < 2) return;
+    const next = wrapIndex(to, n);
+    if (next === index) return;
+    const st = stRef.current;
+    const y = st ? st.scroll() : 0;
+    if (st && y >= st.start - 1 && y <= st.end + 1) { const seg = segmentFor(next, segRef.current, n, loop); segRef.current = seg; st.scroll(st.start + ((st.end - st.start) * seg) / steps); }
+    select(next, dir ?? stepDirection(index, next, n));
+  };
+  const step = (d) => go(index + d, d);
+
+  const onKeyDown = (e) => { if (e.key === "ArrowRight") { e.preventDefault(); step(1); } else if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); } };
+  const onPointerDown = (e) => { swipe.current = { x: e.clientX, y: e.clientY }; };
+  const onPointerUp = (e) => {
+    const s = swipe.current; swipe.current = null;
+    if (!s) return;
+    const dx = e.clientX - s.x;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(e.clientY - s.y) * 1.4) step(dx < 0 ? 1 : -1);
+  };
+
+  const start = stripStart(index, n, VISIBLE);
+
+  return (
+    <div ref={trackRef} className={"dsh-trk" + (className ? " " + className : "")} style={{ height: "calc(" + height + " * " + (1 + steps * SCROLL_PER_DISH) + ")" }}>
+    <div ref={rootRef} className="dsh-root" style={{ height }} role="region" aria-roledescription="carousel" aria-label="Nos plats" tabIndex={0} onKeyDown={onKeyDown}>
+      <style>{CSS}</style>
+      <div className="dsh-canvas">
+        <svg className="dsh-arc" viewBox="0 0 960 520" aria-hidden="true"><path ref={arcRef} style={{ opacity: 0.34 }} /></svg>
+
+        <div className="dsh-pager" role="tablist" aria-label="Choisir un plat">
+          {dishes.map((d, i) => (
+            <button key={i} type="button" role="tab" className="dsh-btn dsh-dot" aria-selected={i === index} aria-current={i === index ? "true" : undefined} aria-label={d.title + " " + d.subtitle} onClick={() => go(i)}><i /></button>
+          ))}
+        </div>
+
+        <div className="dsh-plates" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => (swipe.current = null)}>
+          {dishes.map((d, i) => (
+            <div key={i} ref={(el) => { orbits.current[i] = el; }} className="dsh-orbit" aria-hidden={i !== index}>
+              <img src={d.image} alt={d.alt ?? d.title + " " + d.subtitle} width={245} height={245} draggable={false} />
+            </div>
+          ))}
+        </div>
+
+        <div className="dsh-head" aria-live="polite">
+          {dishes.map((d, i) => (
+            <div key={i} ref={(el) => { heads.current[i] = el; }} className="dsh-hd" aria-hidden={i !== index}>
+              <p className="dsh-eye">{d.eyebrow}</p>
+              <h2 style={{ margin: 0, font: "inherit" }}>
+                <span className="dsh-t1" style={{ fontSize: fitSize(d.title.length, 56, 330, 0.56) + "px" }}>{d.title}</span>
+                <span className="dsh-t2" style={{ fontSize: fitSize(d.subtitle.length, 62, 320, 0.64) + "px" }}>{d.subtitle}</span>
+              </h2>
+            </div>
+          ))}
+        </div>
+
+        <div className="dsh-acts">
+          <a href="tel:+3271510625">{Icon.order}Appeler pour commander</a>
+        </div>
+
+        <div className="dsh-card">
+          <div className="dsh-tabs" role="tablist" aria-label="Détails du plat">
+            {["overview", "ingredients"].map((t) => (
+              <button key={t} type="button" role="tab" className="dsh-btn dsh-tab" aria-selected={tab === t} onClick={() => setTab(t)}>{t === "overview" ? "Description" : "Ingrédients"}</button>
+            ))}
+          </div>
+          <div className="dsh-bodies">
+            {dishes.map((d, i) => (
+              <div key={i} ref={(el) => { bodies.current[i] = el; }} className="dsh-body" aria-hidden={i !== index}>
+                <p className="dsh-price">{d.price}</p>
+                <p className="dsh-kit">{d.category}</p>
+                {tab === "overview" || !d.ingredients?.length ? (
+                  <p className="dsh-desc">{d.description}</p>
+                ) : (
+                  <ul className="dsh-ing">{d.ingredients.map((x) => <li key={x}>{x}</li>)}</ul>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="dsh-strip">
+          <button type="button" className="dsh-btn dsh-arrow" aria-label="Plat précédent" onClick={() => step(-1)}><svg viewBox="0 0 12 16" aria-hidden="true"><path d="M11 0v16L0 8z" /></svg></button>
+          <div className="dsh-win">
+            <div className="dsh-track" style={{ transform: "translateX(" + -start * ITEM + "px)" }}>
+              {dishes.map((d, i) => (
+                <div key={i} className="dsh-th">
+                  <button type="button" className="dsh-btn" aria-current={i === index ? "true" : undefined} onClick={() => go(i)}>
+                    <img src={d.image} alt="" width={56} height={56} draggable={false} />
+                    <span>{d.label}</span>
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+          <button type="button" className="dsh-btn dsh-arrow" aria-label="Plat suivant" onClick={() => step(1)}><svg viewBox="0 0 12 16" aria-hidden="true"><path d="M1 0v16l11-8z" /></svg></button>
+        </div>
+      </div>
+      <p className="dsh-sr" aria-live="polite">{dishes[index] ? "Plat " + (index + 1) + " sur " + n + " : " + dishes[index].title + " " + dishes[index].subtitle : ""}</p>
+    </div>
+    </div>
+  );
+}
+
+const DISHES = [
+  {
+    title: "Pita", subtitle: "Gyros", image: "assets/img/photo-f23097589.webp",
+    eyebrow: "Nos pitas gyros", label: "Pita Gyros", price: "7 €", category: "Pita gyros",
+    description: "Viande marinée grillée sur la broche, pita chaude, crudités et sauce maison.",
+    ingredients: ["Viande de broche", "Pita", "Tomate", "Oignon", "Sauce maison"], accent: "#a3472b",
+  },
+  {
+    title: "Salade", subtitle: "Grecque", image: "assets/img/photo-f30083777.webp",
+    eyebrow: "Salades grecques", label: "Salade grecque", price: "8 €", category: "Salade grecque",
+    description: "Tomates, concombre, oignon rouge, olives et feta, coupée le jour même.",
+    ingredients: ["Tomate", "Concombre", "Olives", "Feta", "Oignon rouge"], accent: "#6a7f4f",
+  },
+  {
+    title: "Frites", subtitle: "Maison", image: "assets/img/photo-f47090051.webp",
+    eyebrow: "Friterie belge", label: "Frites maison", price: "3 / 4,5 €", category: "Friterie belge",
+    description: "Coupées et cuites deux fois, comme dans une vraie friterie belge.",
+    ingredients: ["Pomme de terre", "Double cuisson"], accent: "#c99a3a",
+  },
+];
+
+ReactDOM.createRoot(document.getElementById("dsh-root")).render(<DishCarousel dishes={DISHES} height="100svh" loop={false} />);
+  </script>
+  <script>
+    (function () {
+      var src = document.getElementById("dsh-source").textContent;
+      var out = Babel.transform(src, { presets: [["react", { runtime: "classic" }], "typescript"], filename: "dsh.tsx" }).code;
+      var s = document.createElement("script");
+      s.textContent = out;
+      document.body.appendChild(s);
+    })();
+  </script>
+
+  <section class="section statement" id="specialite" data-moment="word-highlight" aria-label="La spécialité">
+    <div class="wrap">
+      <p class="t-label">La maison</p>
+      <p class="mo-wh__text">Ici, la broche tourne toute la journée : viande marinée, grillée lentement, roulée dans une pita chaude avec crudités et sauce maison, à deux pas de chez vous, considérée comme <strong>la référence grecque</strong> à Charleroi.</p>
+    </div>
+  </section>
+
+  <section class="section" id="avis" aria-labelledby="avis-h" style="background: var(--p-surface, var(--surface))">
+    <div class="wrap">
+      <div class="section-head--split" style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap: var(--s-6); margin-bottom: var(--s-7)">
+        <div>
+          <h2 id="avis-h">Avis clients</h2>
+          <p class="t-lead">Ce qu'on en dit.</p>
+        </div>
+        <a class="link" href="https://www.google.com/maps/search/?api=1&query=Rue+de+Beaumont+200%2C+6030+Marchienne-au-Pont" style="text-align:right">
+          <span style="display:block; font: 700 clamp(2rem,4vw,2.6rem)/1 var(--font-display); color: var(--ink)">4,1 / 5</span>
+          <span style="font-size: var(--t-small)">sur Google &rarr;</span>
+        </a>
+      </div>
+      <div class="grid grid--top">
+        <div class="card span-4">
+          <p style="color: var(--accent); letter-spacing: 2px; margin:0 0 var(--s-2)">★★★★★</p>
+          <p>« Accueil très chaleureux, le gyros est généreux et bien assaisonné. On sent le savoir-faire. »</p>
+          <p class="t-small" style="color: var(--muted); margin-top: var(--s-2)">Avis Google</p>
+        </div>
+        <div class="card span-4">
+          <p style="color: var(--accent); letter-spacing: 2px; margin:0 0 var(--s-2)">★★★★★</p>
+          <p>« Service rapide même à l'heure de midi, parfait pour une pause déjeuner. »</p>
+          <p class="t-small" style="color: var(--muted); margin-top: var(--s-2)">Avis Google</p>
+        </div>
+        <div class="card span-4">
+          <p style="color: var(--accent); letter-spacing: 2px; margin:0 0 var(--s-2)">★★★★☆</p>
+          <p>« La référence grecque du coin, l'assiette mixte est copieuse. »</p>
+          <p class="t-small" style="color: var(--muted); margin-top: var(--s-2)">Avis Google</p>
+        </div>
+      </div>
+      <p class="t-small" style="color: var(--muted); margin-top: var(--s-6)">Note moyenne réelle (4,1/5). Les 3 citations ci-dessus sont des exemples de mise en forme, à remplacer par vos vrais avis Google sur le site final.</p>
+    </div>
+  </section>
+
+  </section>
+</main>
+
+<footer class="footer closing footer--columns" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head"><h2 id="close-h">Une envie de gyros ?</h2><p class="t-lead">Sur place ou à emporter, la broche tourne du mercredi au dimanche.</p></div>
+      <a class="btn btn--primary btn--xl" href="tel:+3271510625">Appeler · 071 51 06 25<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-6 stack-4">
+          <address class="footer__address">Rue de Beaumont, Marchienne-au-Pont</address>
+          <p><a class="link" href="https://www.google.com/maps/search/?api=1&query=Rue+de+Beaumont+200%2C+6030+Marchienne-au-Pont">Itinéraire</a></p>
+        </div>
+        <div class="span-6 start-7 stack-4">
+          <h4>Horaires</h4>
+          <dl class="hours" data-tz="Europe/Brussels">
+            <dt data-days="wed,thu">Mercredi, jeudi</dt><dd>18h à 22h</dd>
+            <dt data-days="fri,sun">Vendredi, dimanche</dt><dd>12h-14h &amp; 18h-22h</dd>
+            <dt data-days="sat">Samedi</dt><dd>18h à 22h</dd>
+            <dt data-days="mon,tue">Lundi, mardi</dt><dd>Fermé</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 Le Spiros</span>
+        <details class="credits"><summary>Photographies de substitution (à remplacer par celles du restaurant)</summary><p>Gyros par jeffreyw (CC BY 2.0), brochettes par Silvio Huinchulef (CC BY-SA), salade grecque par Myfri9694 (CC BY-SA), frites par Ceeseven (CC BY-SA), via Wikimedia Commons.</p></details>
+      </div>
+    </div>
+  </div>
+</footer>
+<nav class="actionbar" aria-label="Actions rapides">
+  <a class="btn btn--secondary" href="https://www.google.com/maps/search/?api=1&query=Rue+de+Beaumont+200%2C+6030+Marchienne-au-Pont">Itinéraire</a>
+  <a class="btn btn--primary" href="tel:+3271510625">Appeler</a>
+</nav>
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+<script type="module" src="assets/moments/moments.js"></script>
+</body>
+</html>

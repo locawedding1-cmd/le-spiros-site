@@ -1,0 +1,67 @@
+{
+ "note": "Credits for the photographs in this folder: photos.mjs credits prints the footer block for the ones the pages use.",
+ "photos": [
+  {
+   "file": "photo-f23097589.webp",
+   "files": [
+    "photo-f23097589-500.webp",
+    "photo-f23097589-960.webp",
+    "photo-f23097589.webp"
+   ],
+   "id": "f23097589",
+   "alt": "Gyro meat on pita",
+   "by": "jeffreyw",
+   "licence": "CC BY 2.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Gyro_meat_on_pita.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f30083777.webp",
+   "files": [
+    "photo-f30083777-500.webp",
+    "photo-f30083777-960.webp",
+    "photo-f30083777.webp"
+   ],
+   "id": "f30083777",
+   "alt": "Feta Cheese Greek Salad",
+   "by": "Myfri9694",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Feta_Cheese_Greek_Salad.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f47090051.webp",
+   "files": [
+    "photo-f47090051-500.webp",
+    "photo-f47090051-960.webp",
+    "photo-f47090051.webp"
+   ],
+   "id": "f47090051",
+   "alt": "Basket of French Fries",
+   "by": "Ceeseven",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Basket_of_French_Fries.JPG",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f23107992.webp",
+   "files": [
+    "photo-f23107992-500.webp",
+    "photo-f23107992-960.webp",
+    "photo-f23107992-1280.webp",
+    "photo-f23107992.webp",
+    "photo-f23107992-780x975.webp"
+   ],
+   "id": "f23107992",
+   "alt": "Gyro sandwich",
+   "by": "jeffreyw",
+   "licence": "CC BY 2.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Gyro_sandwich.jpg",
+   "source": "Wikimedia Commons"
+  }
+ ]
+}
