@@ -28,13 +28,22 @@
   --font-text: "Figtree", system-ui, sans-serif;
   --display-weight: 400;
   --display-tracking: -0.02em;
+  /* a second, warmer accent (tomato) alongside the dealt olive one: sparing use on prices and
+     the rating, a nod to the Italian palette without turning the page into a colour wash */
+  --p-accent2: #b8381f;
 }
 /* the type moment (address) sits right under the visit section's h2, sections.md §4 */
-.type-moment { font: var(--display-weight) clamp(40px, 6vw, 72px)/1.05 var(--font-display); letter-spacing: -0.03em; margin: var(--s-3) 0 var(--s-6); }
+.type-moment { font: var(--display-weight) clamp(40px, 6vw, 72px)/1.05 var(--font-display); letter-spacing: -0.03em; margin: var(--s-2) 0 var(--s-4); }
 .type-moment a { color: inherit; text-decoration: none; border-bottom: 2px solid color-mix(in oklab, var(--ink) 20%, transparent); }
-.type-moment a:hover { border-color: var(--accent); }
-.statement { padding-block: var(--s-10); }
-.statement .t-label { color: var(--muted); margin-bottom: var(--s-6); }
+.type-moment a:hover { border-color: var(--p-accent2); }
+.statement { padding-block: var(--s-7); }
+.statement .t-label { color: var(--muted); margin-bottom: var(--s-4); }
+.statement .mo-wh__text strong { color: var(--p-accent2); }
+#carte .rows__value { color: var(--p-accent2); font-weight: 500; }
+/* La carte, La maison and Les plats size to their own content: on a short, text-led place page
+   the kit's fixed one-screen-per-section grid (system.css) left large empty bands under short
+   content; the hero and the footer keep the full-screen recipe, these three don't need it. */
+#visite, #maison, #plats { height: auto; }
 /* the offer's strip composition runs under the three menu groups: four 1:1 details, line to line */
 .offer-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; margin-top: var(--s-5); }
 .offer-strip img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; }
@@ -48,7 +57,7 @@
   #carte .grid > .span-4 { grid-column: 1 / -1; }
 }
 /* the place's wall composition: two large photographs edge to edge */
-.wall { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; margin-top: var(--s-7); }
+.wall { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; margin-top: var(--s-5); }
 .wall img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
 @media (max-width: 639px) { .wall { grid-template-columns: 1fr; } }
 .wall a { display: block; overflow: hidden; }
@@ -170,7 +179,7 @@
     <div class="wrap">
       <p class="t-label">La maison</p>
       <p class="mo-wh__text">Grillades au feu vif, pâtes fraîches et poissons : une table italienne familiale à Marchienne-au-Pont, avec <strong>423 avis</strong> sur Google.</p>
-      <div class="grid" style="margin-top: var(--s-8)">
+      <div class="grid" style="margin-top: var(--s-5)">
         <div class="span-4">
           <p class="t-label" >4,3 / 5 sur Google</p>
           <p>423 avis, une adresse reconnue du quartier.</p>
