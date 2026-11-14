@@ -437,5 +437,33 @@
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
 <script type="module" src="assets/moments/moments.js"></script>
+<!-- scroll-reveal on the menu groups and the food photos (ui-ux-pro-max, gsap "Scroll Reveal /
+     Standard"): kept to opacity/y, respects prefers-reduced-motion, never pins or scroll-jacks.
+     The house style for a place page is to scroll plainly with no such effect; kept in on explicit
+     request after that rule was explained (.taste-skill/waivers.json, effect-kind). -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.registerPlugin(ScrollTrigger);
+  document.querySelectorAll('.menu-group').forEach(group => {
+    gsap.from(group.querySelectorAll('.leader-rows li'), {
+      opacity: 0, y: 10, duration: 0.4, stagger: 0.04, ease: 'power1.out',
+      scrollTrigger: { trigger: group, start: 'top 90%', toggleActions: 'play none none none' }
+    });
+  });
+  document.querySelectorAll('.offer-strip, .wall').forEach(strip => {
+    gsap.from(strip.children, {
+      opacity: 0, y: 16, duration: 0.5, stagger: 0.08, ease: 'power2.out',
+      scrollTrigger: { trigger: strip, start: 'top 88%', toggleActions: 'play none none none' }
+    });
+  });
+  gsap.utils.toArray('.hero__text > *').forEach((el, i) => {
+    gsap.from(el, { opacity: 0, y: 14, duration: 0.5, delay: 0.1 + i * 0.08, ease: 'power2.out' });
+  });
+})();
+</script>
 </body>
 </html>
