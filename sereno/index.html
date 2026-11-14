@@ -67,15 +67,32 @@
 .leader-rows .dots { flex: 1 1 auto; border-bottom: 1px dotted color-mix(in oklab, var(--ink) 30%, transparent); margin-bottom: 5px; min-width: 12px; }
 .leader-rows .price { white-space: nowrap; color: var(--p-accent2); font-weight: 500; font-variant-numeric: tabular-nums; }
 .menu-note { margin-top: var(--s-3); font-size: 13px; color: var(--muted); }
-/* the place's wall composition: two large photographs edge to edge, same hover-expand as the
-   offer-strip above */
-.wall { display: flex; gap: 2px; height: 420px; margin-top: var(--s-5); }
-.wall a { flex: 1; min-width: 0; height: 100%; display: block; overflow: hidden; transition: flex .5s ease; }
-.wall:has(a:hover) a:not(:hover) { flex: 0.65; }
-.wall a:hover { flex: 1.6; }
-.wall img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
-.wall a:hover img { transform: scale(1.05); }
-@media (max-width: 639px) { .wall { flex-direction: column; height: auto; } .wall a { height: 260px; } }
+/* a real-Google-review marquee (21st.dev "infinite-moving-cards", ported from Framer Motion
+   to a plain CSS keyframe loop): two quotes, duplicated once, paused on hover and on
+   prefers-reduced-motion */
+.reviews-marquee { overflow: hidden; margin-top: var(--s-7); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.reviews-track { display: flex; gap: var(--s-5); width: max-content; animation: reviews-scroll 32s linear infinite; }
+.reviews-marquee:hover .reviews-track { animation-play-state: paused; }
+.review-card { flex: 0 0 auto; width: 320px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--s-5); }
+.review-card__stars { color: var(--p-accent2); letter-spacing: 2px; margin-bottom: var(--s-3); }
+.review-card__text { font-size: 15px; line-height: 1.5; }
+.review-card__who { margin-top: var(--s-3); font-size: 13px; font-weight: 500; }
+.review-card__who span { font-weight: 400; color: var(--muted); }
+@keyframes reviews-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .reviews-track { animation: none; } }
+
+/* survol d'une catégorie → sa photo apparaît dans une forme découpée (21st.dev
+   "connoisseur-stack-interactor", ported from React/SVG/GSAP, without its dark mode or glow) */
+.shape-menu { margin-top: var(--s-6); }
+.shape-menu__list { display: flex; flex-direction: column; gap: var(--s-6); }
+.shape-menu__item { cursor: pointer; }
+.shape-menu__num { display: block; font-size: 14px; font-weight: 500; color: var(--muted); margin-bottom: 2px; transition: color .3s ease; }
+.shape-menu__item.is-active .shape-menu__num { color: var(--p-accent2); }
+.shape-menu__name { margin: 0; font: 400 clamp(22px, 2.6vw, 28px)/1.2 var(--font-display); color: var(--muted); transition: color .4s ease; }
+.shape-menu__item.is-active .shape-menu__name { color: var(--ink); }
+.shape-menu__visual { max-width: 360px; margin-inline: auto; }
+.shape-menu__visual svg { width: 100%; height: auto; display: block; }
+@media (max-width: 1023px) { .shape-menu__visual { margin-top: var(--s-6); } }
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -387,15 +404,92 @@
           <p>Menu enfant, parking et terrasse.</p>
         </div>
       </div>
+      <!-- real Google reviews, ported from 21st.dev's "infinite-moving-cards" (Framer Motion)
+           to a plain CSS keyframe marquee: two real quotes, duplicated once for a seamless loop,
+           paused on hover and on prefers-reduced-motion (reviews-marquee.css below) -->
+      <div class="reviews-marquee">
+        <div class="reviews-track">
+          <article class="review-card">
+            <p class="review-card__stars" aria-hidden="true">★★★★★</p>
+            <p class="review-card__text">« Bonne expérience, serveuse sympathique. Je vous conseille l'entrée scampi crème de poivron, un délice. »</p>
+            <p class="review-card__who">Louisa M. <span>· avis Google, il y a 3 mois</span></p>
+          </article>
+          <article class="review-card">
+            <p class="review-card__stars" aria-hidden="true">★★★★★</p>
+            <p class="review-card__text">« Excellent, on y mange très bien, service et accueil au top. Je vous recommande ce restaurant. »</p>
+            <p class="review-card__who">Frédéric Chevalier <span>· avis Google, il y a 3 mois</span></p>
+          </article>
+          <article class="review-card" aria-hidden="true">
+            <p class="review-card__stars">★★★★★</p>
+            <p class="review-card__text">« Bonne expérience, serveuse sympathique. Je vous conseille l'entrée scampi crème de poivron, un délice. »</p>
+            <p class="review-card__who">Louisa M. <span>· avis Google, il y a 3 mois</span></p>
+          </article>
+          <article class="review-card" aria-hidden="true">
+            <p class="review-card__stars">★★★★★</p>
+            <p class="review-card__text">« Excellent, on y mange très bien, service et accueil au top. Je vous recommande ce restaurant. »</p>
+            <p class="review-card__who">Frédéric Chevalier <span>· avis Google, il y a 3 mois</span></p>
+          </article>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="section" id="plats" aria-labelledby="plats-h">
     <div class="wrap">
-      <div class="section-head"><h2 id="plats-h">Les plats du Sereno</h2></div>
-      <div class="wall">
-        <a href="#carte"><img src="assets/img/photo-f130491098-960.webp" alt="Côtes d'agneau grillées, riz et salade" loading="lazy" decoding="async" data-source="stand-in" data-subject="stand-in"></a>
-        <a href="#carte"><img src="assets/img/photo-f50109961-960.webp" alt="Assortiment de pâtes fraîches" loading="lazy" decoding="async" data-source="stand-in" data-subject="stand-in"></a>
+      <div class="section-head"><h2 id="plats-h">Viandes, pâtes et poissons en photo</h2></div>
+      <!-- survol d'une catégorie → sa photo apparaît dans une forme découpée, portée de
+           21st.dev's "connoisseur-stack-interactor" (SVG clipPath + GSAP) en vanilla, sans le
+           glow et le mode sombre d'origine, avec la palette et les vraies photos du Sereno -->
+      <div class="shape-menu grid">
+        <nav class="shape-menu__list span-6">
+          <div class="shape-menu__item is-active" data-clip="clip-original" data-img="assets/img/photo-f181672513-960.webp" tabindex="0">
+            <span class="shape-menu__num">01</span>
+            <h3 class="shape-menu__name">Viandes grillées</h3>
+          </div>
+          <div class="shape-menu__item" data-clip="clip-hexagons" data-img="assets/img/photo-f47378981-960.webp" tabindex="0">
+            <span class="shape-menu__num">02</span>
+            <h3 class="shape-menu__name">Pâtes fraîches</h3>
+          </div>
+          <div class="shape-menu__item" data-clip="clip-pixels" data-img="assets/img/photo-f77589656-960.webp" tabindex="0">
+            <span class="shape-menu__num">03</span>
+            <h3 class="shape-menu__name">Poissons du jour</h3>
+          </div>
+        </nav>
+        <div class="shape-menu__visual span-6 start-7">
+          <svg viewBox="0 0 500 500" width="500" height="500">
+            <defs>
+              <clipPath id="clip-original">
+                <path class="path" d="M480.6,235H19.4c-6,0-10.8-4.9-10.8-10.8v-9.5c0-6,4.9-10.8,10.8-10.8h461.1c6,0,10.8,4.9,10.8,10.8v9.5C491.4,230.2,486.6,235,480.6,235z"/>
+                <path class="path" d="M483.1,362.4H16.9c-4.6,0-8.3-3.7-8.3-8.3v-1.8c0-4.6,3.7-8.3,8.3-8.3h466.1c4.6,0,8.3,3.7,8.3,8.3v1.8C491.4,358.7,487.7,362.4,483.1,362.4z"/>
+                <path class="path" d="M460.3,336.3H39.7c-17.2,0-31.1-13.9-31.1-31.1v-31.5c0-17.2,13.9-31.1,31.1-31.1h420.7c17.2,0,31.1,13.9,31.1,31.1v31.5C491.4,322.4,477.5,336.3,460.3,336.3z"/>
+                <path class="path" d="M459.2,196.2H40.8v-35c0-47.5,38.5-86,86-86h246.5c47.5,0,86,38.5,86,86V196.2z"/>
+                <path class="path" d="M441.9,424.9H58.1c-9.6,0-17.3-7.8-17.3-17.3v-37.4h418.5v37.4C459.2,417.1,451.5,424.9,441.9,424.9z"/>
+              </clipPath>
+              <clipPath id="clip-hexagons">
+                <rect class="path" x="20" y="20" width="200" height="280" rx="12"/>
+                <rect class="path" x="20" y="320" width="200" height="160" rx="12"/>
+                <rect class="path" x="240" y="20" width="240" height="140" rx="12"/>
+                <rect class="path" x="240" y="180" width="110" height="160" rx="12"/>
+                <rect class="path" x="370" y="180" width="110" height="160" rx="12"/>
+                <rect class="path" x="240" y="360" width="240" height="120" rx="12"/>
+              </clipPath>
+              <clipPath id="clip-pixels">
+                <rect class="path" x="20" y="20" width="140" height="140" rx="4"/>
+                <rect class="path" x="180" y="20" width="140" height="140" rx="4"/>
+                <rect class="path" x="340" y="20" width="140" height="140" rx="4"/>
+                <rect class="path" x="20" y="180" width="140" height="140" rx="4"/>
+                <rect class="path" x="180" y="180" width="140" height="140" rx="4"/>
+                <rect class="path" x="340" y="180" width="140" height="140" rx="4"/>
+                <rect class="path" x="20" y="340" width="140" height="140" rx="4"/>
+                <rect class="path" x="180" y="340" width="140" height="140" rx="4"/>
+                <rect class="path" x="340" y="340" width="140" height="140" rx="4"/>
+              </clipPath>
+            </defs>
+            <g class="shape-menu__group" clip-path="url(#clip-original)">
+              <image class="shape-menu__image" href="assets/img/photo-f181672513-960.webp" width="500" height="500" preserveAspectRatio="xMidYMid slice" data-source="stand-in" data-subject="stand-in"/>
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
@@ -448,23 +542,20 @@
      request after that rule was explained (.taste-skill/waivers.json, effect-kind). -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
 <script>
 (() => {
   if (!window.gsap) return;
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
-  if (window.SplitText) gsap.registerPlugin(SplitText);
 
-  // hero h1: a character-split reveal on load (21st.dev "Reveal Text", ported to plain GSAP:
-  // no React, no @gsap/react — the same SplitText().from() call this skill's own hero__text
-  // fade used to do for every word at once)
+  // hero h1: a character-split reveal on load (21st.dev "Reveal Text", same effect, ported off
+  // the paid/CDN-flaky SplitText plugin to a plain span-per-character wrap — no extra script)
   const h1 = document.querySelector('.hero h1');
-  if (h1 && window.SplitText) {
-    const split = SplitText.create(h1, { type: 'chars,words' });
-    gsap.from(split.chars, { opacity: 0, x: 24, duration: 0.6, stagger: 0.02, ease: 'power3.out' });
-  } else if (h1) {
-    gsap.from(h1, { opacity: 0, y: 14, duration: 0.5, ease: 'power2.out' });
+  if (h1) {
+    const text = h1.textContent;
+    h1.setAttribute('aria-label', text);
+    h1.innerHTML = [...text].map(ch => `<span style="display:inline-block">${ch === ' ' ? '&nbsp;' : ch}</span>`).join('');
+    gsap.from(h1.querySelectorAll('span'), { opacity: 0, x: 24, duration: 0.6, stagger: 0.02, ease: 'power3.out' });
   }
   gsap.utils.toArray('.hero__lead, .hero .btn-row').forEach((el, i) => {
     gsap.from(el, { opacity: 0, y: 14, duration: 0.5, delay: 0.5 + i * 0.08, ease: 'power2.out' });
@@ -477,13 +568,51 @@
       scrollTrigger: { trigger: group, start: 'top 90%', toggleActions: 'play none none none' }
     });
   });
-  document.querySelectorAll('.offer-strip, .wall').forEach(strip => {
+  document.querySelectorAll('.offer-strip').forEach(strip => {
     gsap.from(strip.children, {
       opacity: 0, y: 16, duration: 0.5, stagger: 0.08, ease: 'power2.out',
       scrollTrigger: { trigger: strip, start: 'top 88%', toggleActions: 'play none none none' }
     });
   });
 })();
+
+// shape-menu: hover a category, its photo fills the clipped shape with a stagger-in, a sine
+// breathing idle, and a stagger-out (21st.dev "connoisseur-stack-interactor", same GSAP timeline,
+// ported off React/useLayoutEffect to a plain DOMContentLoaded listener)
+document.addEventListener('DOMContentLoaded', () => {
+  const menu = document.querySelector('.shape-menu');
+  if (!menu || !window.gsap) return;
+  const items = [...menu.querySelectorAll('.shape-menu__item')];
+  const group = menu.querySelector('.shape-menu__group');
+  const image = menu.querySelector('.shape-menu__image');
+  let tl;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const play = (item) => {
+    const clipId = item.dataset.clip, href = item.dataset.img;
+    const selector = `#${clipId} .path`;
+    if (tl) tl.kill();
+    group.setAttribute('clip-path', `url(#${clipId})`);
+    image.setAttribute('href', href);
+    if (reduced) { gsap.set(selector, { scale: 1 }); return; }
+    gsap.set(selector, { scale: 0, transformOrigin: '50% 50%' });
+    tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+    tl.to(selector, { scale: 1, duration: 0.7, stagger: { amount: 0.35, from: 'random' }, ease: 'expo.out' })
+      .to(selector, { scale: 1.04, duration: 1.3, yoyo: true, repeat: 1, ease: 'sine.inOut', stagger: { amount: 0.2, from: 'center' } })
+      .to(selector, { scale: 0, duration: 0.5, stagger: { amount: 0.25, from: 'edges' }, ease: 'expo.in' });
+  };
+
+  items.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      if (item.classList.contains('is-active')) return;
+      items.forEach(i => i.classList.remove('is-active'));
+      item.classList.add('is-active');
+      play(item);
+    });
+    item.addEventListener('focus', () => item.dispatchEvent(new Event('mouseenter')));
+  });
+  play(items[0]);
+});
 </script>
 </body>
 </html>
