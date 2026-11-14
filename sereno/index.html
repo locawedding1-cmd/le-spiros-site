@@ -29,8 +29,9 @@
   --display-weight: 400;
   --display-tracking: -0.02em;
   /* a second, warmer accent (tomato) alongside the dealt olive one: sparing use on prices and
-     the rating, a nod to the Italian palette without turning the page into a colour wash */
-  --p-accent2: #b8381f;
+     the rating, a nod to the Italian palette without turning the page into a colour wash;
+     darkened to clear 7:1 on the page ground for body-weight coloured text */
+  --p-accent2: #7a2412;
 }
 /* the type moment (address) sits right under the visit section's h2, sections.md §4 */
 .type-moment { font: var(--display-weight) clamp(40px, 6vw, 72px)/1.05 var(--font-display); letter-spacing: -0.03em; margin: var(--s-2) 0 var(--s-4); }
@@ -39,23 +40,30 @@
 .statement { padding-block: var(--s-7); }
 .statement .t-label { color: var(--muted); margin-bottom: var(--s-4); }
 .statement .mo-wh__text strong { color: var(--p-accent2); }
-#carte .rows__value { color: var(--p-accent2); font-weight: 500; }
-/* La carte, La maison and Les plats size to their own content: on a short, text-led place page
-   the kit's fixed one-screen-per-section grid (system.css) left large empty bands under short
-   content; the hero and the footer keep the full-screen recipe, these three don't need it. */
-#visite, #maison, #plats { height: auto; }
-/* the offer's strip composition runs under the three menu groups: four 1:1 details, line to line */
-.offer-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; margin-top: var(--s-5); }
+/* La carte, La cave, La maison and Les plats size to their own content: on a text-led place
+   page the kit's fixed one-screen-per-section grid (system.css) left large empty bands under
+   short content, or clipped the full menu; the hero and the footer keep the full-screen recipe. */
+#visite, #carte, #cave, #maison, #plats { height: auto; }
+/* the offer's strip composition runs under the menu groups: four 1:1 details, line to line */
+.offer-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; margin-top: var(--s-5); margin-bottom: var(--s-6); }
 .offer-strip img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; }
 @media (max-width: 639px) {
   .offer-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .offer-strip img { aspect-ratio: 16/9; }
   .offer-strip img:nth-child(n+3) { display: none; }
-  #carte { height: auto; }
-  /* the kit's .span-4 only stacks under 639px when it carries .tile; these plain menu-group
-     columns stayed 3-up at 1/3 width each, wrapping tall and thin instead of stacking. */
-  #carte .grid > .span-4 { grid-column: 1 / -1; }
 }
+/* the full carte and cave: a dotted leader line from the dish or bottle to its price, the
+   classic printed-menu convention (sections-library.md's "restaurant menu block"), set in the
+   kit's own 3-up grid (never CSS multi-column: that reflows past the .wrap's own left lines). */
+.menu-group { margin-bottom: var(--s-6); }
+.menu-group:last-child { margin-bottom: 0; }
+.menu-group .t-label { color: var(--muted); margin-bottom: var(--s-3); }
+.leader-rows li { display: flex; align-items: baseline; gap: 6px; padding-block: 5px; }
+.leader-rows .name { font-size: 16px; }
+.leader-rows .name small { display: block; color: var(--muted); font-size: 13px; line-height: 1.4; }
+.leader-rows .dots { flex: 1 1 auto; border-bottom: 1px dotted color-mix(in oklab, var(--ink) 30%, transparent); margin-bottom: 5px; min-width: 12px; }
+.leader-rows .price { white-space: nowrap; color: var(--p-accent2); font-weight: 500; font-variant-numeric: tabular-nums; }
+.menu-note { margin-top: var(--s-3); font-size: 13px; color: var(--muted); }
 /* the place's wall composition: two large photographs edge to edge */
 .wall { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; margin-top: var(--s-5); }
 .wall img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
@@ -94,6 +102,7 @@
           </div>
         </div>
       </div>
+      <div class="nav__item"><a class="nav__link" href="#cave">La cave</a></div>
       <div class="nav__item"><a class="nav__link" href="#visite">Visite</a></div>
       <div class="nav__item"><a class="nav__link" href="#maison">La maison</a></div>
     </nav>
@@ -140,37 +149,217 @@
   <section class="section g-alt" id="carte" aria-labelledby="carte-h">
     <div class="wrap">
       <div class="section-head"><h2 id="carte-h">La carte : viandes, pâtes et poissons</h2></div>
-      <div class="grid" style="margin-top: var(--s-5)">
-        <div class="span-4">
-          <p class="t-label">Viandes</p>
-          <ul class="rows">
-            <li><span class="rows__name">Steak de bœuf</span><span class="rows__value">19 €</span></li>
-            <li><span class="rows__name">Côtes d'agneau</span><span class="rows__value">20 €</span></li>
-            <li><span class="rows__name">Entrecôte</span><span class="rows__value">25 €</span></li>
-          </ul>
-        </div>
-        <div class="span-4">
-          <p class="t-label">Pâtes</p>
-          <ul class="rows">
-            <li><span class="rows__name">Aglio e olio</span><span class="rows__value">10 €</span></li>
-            <li><span class="rows__name">Bolognaise</span><span class="rows__value">12 €</span></li>
-            <li><span class="rows__name">Gnocchi</span><span class="rows__value">15 €</span></li>
-          </ul>
-        </div>
-        <div class="span-4">
-          <p class="t-label">Poissons</p>
-          <ul class="rows">
-            <li><span class="rows__name">Bar</span><span class="rows__value">20 €</span></li>
-            <li><span class="rows__name">Saumon</span><span class="rows__value">20 €</span></li>
-            <li><span class="rows__name">Espadon</span><span class="rows__value">22 €</span></li>
-          </ul>
-        </div>
-      </div>
       <div class="offer-strip">
         <img src="assets/img/photo-f77589656-500.webp" alt="Poisson grillé entier sur plat" decoding="async" data-source="stand-in" data-subject="stand-in">
         <img src="assets/img/photo-f47378981-500.webp" alt="Gnocchis gratinés au parmesan" decoding="async" data-source="stand-in" data-subject="stand-in">
         <img src="assets/img/photo-f97226152-500.webp" alt="Part de tiramisu maison" loading="lazy" decoding="async" data-source="stand-in" data-subject="stand-in">
         <img src="assets/img/photo-f18338269-500.webp" alt="Verre de vin rouge à la bougie" loading="lazy" decoding="async" data-source="stand-in" data-subject="stand-in">
+      </div>
+      <div class="grid" style="margin-top: var(--s-5)">
+        <div class="span-4">
+          <div class="menu-group">
+            <p class="t-label">Viandes</p>
+            <ul class="leader-rows">
+              <li><span class="name">Brochettes d'agneau<small>minimum 5 pièces</small></span><span class="dots"></span><span class="price">2 €/pièce</span></li>
+              <li><span class="name">Steak de bœuf</span><span class="dots"></span><span class="price">19 €</span></li>
+              <li><span class="name">Côtes d'agneau</span><span class="dots"></span><span class="price">20 €</span></li>
+              <li><span class="name">Entrecôte</span><span class="dots"></span><span class="price">25 €</span></li>
+              <li><span class="name">Mix de viandes<small>selon arrivage</small></span><span class="dots"></span><span class="price">34 €</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <p class="t-label">Poissons</p>
+            <ul class="leader-rows">
+              <li><span class="name">Bar</span><span class="dots"></span><span class="price">20 €</span></li>
+              <li><span class="name">Saumon</span><span class="dots"></span><span class="price">20 €</span></li>
+              <li><span class="name">Gambas</span><span class="dots"></span><span class="price">21 €</span></li>
+              <li><span class="name">Espadon</span><span class="dots"></span><span class="price">22 €</span></li>
+              <li><span class="name">Mix de poissons<small>selon arrivage</small></span><span class="dots"></span><span class="price">38 €</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="span-4">
+          <div class="menu-group">
+            <p class="t-label">Escalopes de veau panées</p>
+            <ul class="leader-rows">
+              <li><span class="name">Milanaise</span><span class="dots"></span><span class="price">18 €</span></li>
+              <li><span class="name">Parmigiana<small>aubergines</small></span><span class="dots"></span><span class="price">21 €</span></li>
+              <li><span class="name">Abruzzese<small>brocolis</small></span><span class="dots"></span><span class="price">21 €</span></li>
+              <li><span class="name">Fiorentina<small>épinards</small></span><span class="dots"></span><span class="price">21 €</span></li>
+              <li><span class="name">Cordon bleu<small>jambon cuit, gouda</small></span><span class="dots"></span><span class="price">21 €</span></li>
+              <li><span class="name">Piacentina<small>pancetta, oignons, œuf</small></span><span class="dots"></span><span class="price">22 €</span></li>
+              <li><span class="name">Reggiana<small>mortadelle, artichauts, tomates</small></span><span class="dots"></span><span class="price">22 €</span></li>
+              <li><span class="name">Valdaostana<small>jambon de Parme, aubergines</small></span><span class="dots"></span><span class="price">22 €</span></li>
+              <li><span class="name">Fortissima<small>jambon de Parme, gorgonzola</small></span><span class="dots"></span><span class="price">23 €</span></li>
+              <li><span class="name">Pizzaïola<small>jambon de Parme, tomates, roquette, parmesan</small></span><span class="dots"></span><span class="price">24 €</span></li>
+            </ul>
+            <p class="menu-note">Sauces : poivre vert, quatre fromages ou archiduc — 3,5 €. Accompagnement au choix (pâtes, frites/salade, patate al rosmarino/salade) ; supplément 3 €. Salade mixte 4,5 €.</p>
+          </div>
+        </div>
+        <div class="span-4">
+          <div class="menu-group">
+            <p class="t-label">Pâtes</p>
+            <ul class="leader-rows">
+              <li><span class="name">Aglio e olio</span><span class="dots"></span><span class="price">10 €</span></li>
+              <li><span class="name">Napoli</span><span class="dots"></span><span class="price">11 €</span></li>
+              <li><span class="name">Bolognaise</span><span class="dots"></span><span class="price">12 €</span></li>
+              <li><span class="name">Quatre fromages</span><span class="dots"></span><span class="price">13 €</span></li>
+              <li><span class="name">Fruits de mer</span><span class="dots"></span><span class="price">18 €</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <p class="t-label">Pâtes spéciales</p>
+            <ul class="leader-rows">
+              <li><span class="name">Gnocchi<small>bolognaise, 4 fromages ou napoli</small></span><span class="dots"></span><span class="price">15 €</span></li>
+              <li><span class="name">Canneloni<small>viande</small></span><span class="dots"></span><span class="price">15 €</span></li>
+              <li><span class="name">Raviolis ricotta<small>bolognaise, 4 fromages ou napoli</small></span><span class="dots"></span><span class="price">16 €</span></li>
+              <li><span class="name">Roulades aubergines</span><span class="dots"></span><span class="price">16 €</span></li>
+              <li><span class="name">Lasagne</span><span class="dots"></span><span class="price">16 €</span></li>
+              <li><span class="name">Raviolis champignons<small>huile de truffe</small></span><span class="dots"></span><span class="price">17 €</span></li>
+              <li><span class="name">Orecchiette<small>chair à saucisse, crème de parmesan</small></span><span class="dots"></span><span class="price">17 €</span></li>
+              <li><span class="name">Trio de pâtes</span><span class="dots"></span><span class="price">19 €</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <p class="t-label">Desserts</p>
+            <ul class="leader-rows">
+              <li><span class="name">Mousse au chocolat</span><span class="dots"></span><span class="price">6 €</span></li>
+              <li><span class="name">Tartufo</span><span class="dots"></span><span class="price">6 €</span></li>
+              <li><span class="name">Tiramisu</span><span class="dots"></span><span class="price">6 €</span></li>
+              <li><span class="name">Tiramisu speculoos</span><span class="dots"></span><span class="price">6 €</span></li>
+              <li><span class="name">Brésilienne</span><span class="dots"></span><span class="price">7 €</span></li>
+              <li><span class="name">Dame blanche / noire</span><span class="dots"></span><span class="price">7 €</span></li>
+              <li><span class="name">Coupe de fruits frais</span><span class="dots"></span><span class="price">9 €</span></li>
+              <li><span class="name">Banana split</span><span class="dots"></span><span class="price">9 €</span></li>
+              <li><span class="name">Assiette de fromages</span><span class="dots"></span><span class="price">9 €</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cave" aria-labelledby="cave-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="cave-h">La cave : vins, apéritifs et digestifs</h2></div>
+      <figure class="pl-photo" style="--pl-r: 2.6; margin: var(--s-5) 0 var(--s-6)">
+        <img src="assets/img/photo-f18338269-960.webp" srcset="assets/img/photo-f18338269-500.webp 500w, assets/img/photo-f18338269-960.webp 960w" sizes="100vw" alt="Verre de vin rouge à la bougie" loading="lazy" decoding="async" data-source="stand-in" data-subject="stand-in" style="object-position: 50% 30%">
+      </figure>
+      <div class="grid">
+        <div class="span-4">
+          <div class="menu-group">
+            <p class="t-label">Vin maison</p>
+            <ul class="leader-rows">
+              <li><span class="name">Blanc, rosé ou rouge<small>1/4 L</small></span><span class="dots"></span><span class="price">7 €</span></li>
+              <li><span class="name">Blanc, rosé ou rouge<small>1/2 L</small></span><span class="dots"></span><span class="price">12 €</span></li>
+              <li><span class="name">Blanc, rosé ou rouge<small>1 L</small></span><span class="dots"></span><span class="price">20 €</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <p class="t-label">Bulles</p>
+            <ul class="leader-rows">
+              <li><span class="name">Prosecco della casa</span><span class="dots"></span><span class="price">24 €</span></li>
+              <li><span class="name">Prosecco rosato<small>Rosa di Sera, Veneto</small></span><span class="dots"></span><span class="price">25 €</span></li>
+              <li><span class="name">Lambrusco superiore<small>Donelli, Emilia Romagna</small></span><span class="dots"></span><span class="price">22 €</span></li>
+              <li><span class="name">Champagne Mumm<small>cordon rouge, France</small></span><span class="dots"></span><span class="price">55 €</span></li>
+              <li><span class="name">Champagne Taittinger<small>brut réserve, France</small></span><span class="dots"></span><span class="price">70 €</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <p class="t-label">Rosés</p>
+            <ul class="leader-rows">
+              <li><span class="name">Côtes de Provence<small>Estandon Héritage, France</small></span><span class="dots"></span><span class="price">17 € / 28 €</span></li>
+              <li><span class="name">Rosato<small>La Torre, Puglia IGP</small></span><span class="dots"></span><span class="price">21 €</span></li>
+              <li><span class="name">Bardolino Chiaretto<small>DOC, Veneto</small></span><span class="dots"></span><span class="price">17 € / 25 €</span></li>
+              <li><span class="name">Pinot Nero Rosato<small>IGT, Veneto</small></span><span class="dots"></span><span class="price">24 €</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="span-4">
+          <div class="menu-group">
+            <p class="t-label">Rouges</p>
+            <ul class="leader-rows">
+              <li><span class="name">Salbanello<small>IGT, Palladin, Veneto</small></span><span class="dots"></span><span class="price">24 €</span></li>
+              <li><span class="name">Pinot Nero<small>DOC, Veneto</small></span><span class="dots"></span><span class="price">24 €</span></li>
+              <li><span class="name">1ères Côtes de Blaye<small>Château les Aublines, France</small></span><span class="dots"></span><span class="price">16 € / 22 €</span></li>
+              <li><span class="name">Saint-Émilion<small>Château Grand Bouquey, France</small></span><span class="dots"></span><span class="price">21 € / 34 €</span></li>
+              <li><span class="name">Côtes du Rhône<small>Caprices d'Antoine Ogier, France</small></span><span class="dots"></span><span class="price">16 € / 26 €</span></li>
+              <li><span class="name">Montepulciano d'Abruzzo<small>Due Colline</small></span><span class="dots"></span><span class="price">20 €</span></li>
+              <li><span class="name">Sangiovese<small>Marche IGT, bio</small></span><span class="dots"></span><span class="price">23 €</span></li>
+              <li><span class="name">Valpolicella classico</span><span class="dots"></span><span class="price">25 € / 27 €</span></li>
+              <li><span class="name">Rosso Piceno Superiore<small>Marche, bio</small></span><span class="dots"></span><span class="price">27 €</span></li>
+              <li><span class="name">Negroamaro<small>La Torre, Puglia</small></span><span class="dots"></span><span class="price">22 €</span></li>
+              <li><span class="name">Primitivo di Manduria<small>La Torre, DOC, Puglia</small></span><span class="dots"></span><span class="price">29 €</span></li>
+              <li><span class="name">Susumaniello<small>Curious Donkey, Puglia</small></span><span class="dots"></span><span class="price">32 €</span></li>
+              <li><span class="name">Torre d'Orti<small>IGT, Veneto</small></span><span class="dots"></span><span class="price">27 €</span></li>
+              <li><span class="name">Bardolino classico<small>DOC, Veneto</small></span><span class="dots"></span><span class="price">18 € / 25 €</span></li>
+              <li><span class="name">Valpolicella Ripasso Superiore<small>DOC, Veneto</small></span><span class="dots"></span><span class="price">41 €</span></li>
+              <li><span class="name">Barbera del Monferrato<small>DOC, Piémont</small></span><span class="dots"></span><span class="price">25 €</span></li>
+              <li><span class="name">Barolo di Serralunga<small>DOCG, Fontanafredda, Piémont, bio</small></span><span class="dots"></span><span class="price">62 €</span></li>
+              <li><span class="name">Nero d'Avola superiore<small>Sollazzo, Sicile, bio</small></span><span class="dots"></span><span class="price">34 €</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="span-4">
+          <div class="menu-group">
+            <p class="t-label">Blancs</p>
+            <ul class="leader-rows">
+              <li><span class="name">Pinot gris d'Alsace<small>Kuehn, France</small></span><span class="dots"></span><span class="price">17 € / 28 €</span></li>
+              <li><span class="name">Chardonnay<small>La Torre, IGP Salento</small></span><span class="dots"></span><span class="price">20 €</span></li>
+              <li><span class="name">Pecorino<small>Falerio DOC, bio</small></span><span class="dots"></span><span class="price">27 €</span></li>
+              <li><span class="name">Bianco di Custoza<small>DOC, Veneto</small></span><span class="dots"></span><span class="price">17 € / 25 €</span></li>
+              <li><span class="name">Pinot grigio<small>DOC, Veneto</small></span><span class="dots"></span><span class="price">23 €</span></li>
+              <li><span class="name">Riesling Crouchen<small>Brown Brothers, Australie</small></span><span class="dots"></span><span class="price">27 €</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <p class="t-label">Apéritifs</p>
+            <ul class="leader-rows">
+              <li><span class="name">Kir / Kir-Prosecco</span><span class="dots"></span><span class="price">6 € / 7 €</span></li>
+              <li><span class="name">Prosecco, Martini, Cynar, Pineau des Charentes, Gancia, Campari, Porto, Batida, Pisang, Ricard, Havana Club</span><span class="dots"></span><span class="price">6 €</span></li>
+              <li><span class="name">Riesling</span><span class="dots"></span><span class="price">7 €</span></li>
+              <li><span class="name">Picon vin blanc<small>Cointreau</small></span><span class="dots"></span><span class="price">7 €</span></li>
+              <li><span class="name">Gin</span><span class="dots"></span><span class="price">7,5 €</span></li>
+              <li><span class="name">Apéritif Sereno</span><span class="dots"></span><span class="price">9 €</span></li>
+              <li><span class="name">Cocktail Luca / Miro</span><span class="dots"></span><span class="price">9 €</span></li>
+              <li><span class="name">Spritz</span><span class="dots"></span><span class="price">9,5 €</span></li>
+              <li><span class="name">Gin G'vine</span><span class="dots"></span><span class="price">9,5 €</span></li>
+            </ul>
+            <p class="menu-note">Sans alcool : Bitter ou Crodino 4 €, Funny Pisang 5 €, Spritz sans alcool 8,5 €. Supplément soft 1 €.</p>
+          </div>
+          <div class="menu-group">
+            <p class="t-label">Digestifs</p>
+            <ul class="leader-rows">
+              <li><span class="name">Limoncello, Grappa, Amaretto</span><span class="dots"></span><span class="price">5 €</span></li>
+              <li><span class="name">Sambuca, Grappa miel ou pomme, J&amp;B, Montenegro, Jack Daniels, Red Label, Averna, Cognac, Calvados, Amaro del Ciclista</span><span class="dots"></span><span class="price">6 €</span></li>
+              <li><span class="name">Cointreau, Vecchia Romagna</span><span class="dots"></span><span class="price">7 €</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <p class="t-label">Cafés &amp; thés</p>
+            <ul class="leader-rows">
+              <li><span class="name">Expresso</span><span class="dots"></span><span class="price">2,5 €</span></li>
+              <li><span class="name">Café / Thé</span><span class="dots"></span><span class="price">3 €</span></li>
+              <li><span class="name">Cappuccino</span><span class="dots"></span><span class="price">4 €</span></li>
+              <li><span class="name">Caffe corretto</span><span class="dots"></span><span class="price">5 €</span></li>
+              <li><span class="name">Irish coffee / Italian coffee</span><span class="dots"></span><span class="price">9 €</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <p class="t-label">Softs &amp; bières</p>
+            <ul class="leader-rows">
+              <li><span class="name">Aqua Panna / San Pellegrino<small>verre</small></span><span class="dots"></span><span class="price">2 €</span></li>
+              <li><span class="name">Aqua Panna / San Pellegrino<small>50 cl – 1 L</small></span><span class="dots"></span><span class="price">5 € / 8 €</span></li>
+              <li><span class="name">Coca-Cola, Coca Zero<small>verre – 1 L</small></span><span class="dots"></span><span class="price">2,5 € / 10 €</span></li>
+              <li><span class="name">Fanta, Sprite, Ice-tea, Schweppes</span><span class="dots"></span><span class="price">2,5 €</span></li>
+              <li><span class="name">Jus de fruits</span><span class="dots"></span><span class="price">3,5 €</span></li>
+              <li><span class="name">Jupiler sans alcool</span><span class="dots"></span><span class="price">3 €</span></li>
+              <li><span class="name">Kriek St-Louis, Carlsberg</span><span class="dots"></span><span class="price">3,5 €</span></li>
+              <li><span class="name">Leffe blonde</span><span class="dots"></span><span class="price">4 €</span></li>
+              <li><span class="name">Orval</span><span class="dots"></span><span class="price">5 €</span></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -230,7 +419,7 @@
           <h3>Horaires</h3>
           <ul><li>Mar-jeu, sam : 18h-22h</li><li>Ven, dim : 12h-14h &amp; 18h-22h</li><li>Lundi : fermé</li></ul>
         </div>
-        <div class="span-2 footer__col"><h3>Carte</h3><ul><li><a href="#carte">Viandes, pâtes, poissons</a></li><li><a href="#maison">La maison</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Carte</h3><ul><li><a href="#carte">Viandes, pâtes, poissons</a></li><li><a href="#cave">La cave</a></li><li><a href="#maison">La maison</a></li></ul></div>
         <div class="span-2 footer__col"><h3>Contact</h3><ul><li>071 51 74 89</li></ul></div>
       </div>
       <div class="footer__legal">
