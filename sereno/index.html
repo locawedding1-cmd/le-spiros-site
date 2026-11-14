@@ -44,12 +44,15 @@
    page the kit's fixed one-screen-per-section grid (system.css) left large empty bands under
    short content, or clipped the full menu; the hero and the footer keep the full-screen recipe. */
 #visite, #carte, #cave, #maison, #plats { height: auto; }
-/* the offer's strip composition runs under the menu groups: four 1:1 details, line to line */
-.offer-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; margin-top: var(--s-5); margin-bottom: var(--s-6); }
-.offer-strip img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; }
+/* the offer's strip composition runs under the menu groups: four details, line to line, the
+   hovered one widening and its neighbours yielding (21st.dev "Gallery Animation", ported from
+   Framer Motion's animated flex-basis to plain CSS :has(), no React or JS needed for the hover) */
+.offer-strip { display: flex; gap: 2px; height: 260px; margin-top: var(--s-5); margin-bottom: var(--s-6); }
+.offer-strip img { flex: 1; min-width: 0; height: 100%; object-fit: cover; display: block; transition: flex .5s ease; }
+.offer-strip:has(img:hover) img:not(:hover) { flex: 0.6; }
+.offer-strip img:hover { flex: 2.2; }
 @media (max-width: 639px) {
-  .offer-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .offer-strip img { aspect-ratio: 16/9; }
+  .offer-strip { height: 160px; }
   .offer-strip img:nth-child(n+3) { display: none; }
 }
 /* the full carte and cave: a dotted leader line from the dish or bottle to its price, the
@@ -64,13 +67,15 @@
 .leader-rows .dots { flex: 1 1 auto; border-bottom: 1px dotted color-mix(in oklab, var(--ink) 30%, transparent); margin-bottom: 5px; min-width: 12px; }
 .leader-rows .price { white-space: nowrap; color: var(--p-accent2); font-weight: 500; font-variant-numeric: tabular-nums; }
 .menu-note { margin-top: var(--s-3); font-size: 13px; color: var(--muted); }
-/* the place's wall composition: two large photographs edge to edge */
-.wall { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; margin-top: var(--s-5); }
-.wall img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
-@media (max-width: 639px) { .wall { grid-template-columns: 1fr; } }
-.wall a { display: block; overflow: hidden; }
-.wall img { transition: transform .4s ease; }
-.wall a:hover img { transform: scale(1.03); }
+/* the place's wall composition: two large photographs edge to edge, same hover-expand as the
+   offer-strip above */
+.wall { display: flex; gap: 2px; height: 420px; margin-top: var(--s-5); }
+.wall a { flex: 1; min-width: 0; height: 100%; display: block; overflow: hidden; transition: flex .5s ease; }
+.wall:has(a:hover) a:not(:hover) { flex: 0.65; }
+.wall a:hover { flex: 1.6; }
+.wall img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+.wall a:hover img { transform: scale(1.05); }
+@media (max-width: 639px) { .wall { flex-direction: column; height: auto; } .wall a { height: 260px; } }
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -443,11 +448,29 @@
      request after that rule was explained (.taste-skill/waivers.json, effect-kind). -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
 <script>
 (() => {
-  if (!window.gsap || !window.ScrollTrigger) return;
+  if (!window.gsap) return;
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  gsap.registerPlugin(ScrollTrigger);
+  if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+  if (window.SplitText) gsap.registerPlugin(SplitText);
+
+  // hero h1: a character-split reveal on load (21st.dev "Reveal Text", ported to plain GSAP:
+  // no React, no @gsap/react — the same SplitText().from() call this skill's own hero__text
+  // fade used to do for every word at once)
+  const h1 = document.querySelector('.hero h1');
+  if (h1 && window.SplitText) {
+    const split = SplitText.create(h1, { type: 'chars,words' });
+    gsap.from(split.chars, { opacity: 0, x: 24, duration: 0.6, stagger: 0.02, ease: 'power3.out' });
+  } else if (h1) {
+    gsap.from(h1, { opacity: 0, y: 14, duration: 0.5, ease: 'power2.out' });
+  }
+  gsap.utils.toArray('.hero__lead, .hero .btn-row').forEach((el, i) => {
+    gsap.from(el, { opacity: 0, y: 14, duration: 0.5, delay: 0.5 + i * 0.08, ease: 'power2.out' });
+  });
+
+  if (!window.ScrollTrigger) return;
   document.querySelectorAll('.menu-group').forEach(group => {
     gsap.from(group.querySelectorAll('.leader-rows li'), {
       opacity: 0, y: 10, duration: 0.4, stagger: 0.04, ease: 'power1.out',
@@ -459,9 +482,6 @@
       opacity: 0, y: 16, duration: 0.5, stagger: 0.08, ease: 'power2.out',
       scrollTrigger: { trigger: strip, start: 'top 88%', toggleActions: 'play none none none' }
     });
-  });
-  gsap.utils.toArray('.hero__text > *').forEach((el, i) => {
-    gsap.from(el, { opacity: 0, y: 14, duration: 0.5, delay: 0.1 + i * 0.08, ease: 'power2.out' });
   });
 })();
 </script>
